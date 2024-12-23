@@ -36,7 +36,7 @@ export default function Header() {
           : "h-20 md:h-24 bg-white"
       }`}
     >
-      <div className=" mx-auto container px-4 h-full flex items-center justify-between">
+      <div className=" mx-auto container max-w-7xl px-4 h-full flex items-center justify-between">
         <Link href="/"
           className={`font-bold transition-all duration-300 ease-in-out ${
             isScrolled ? "text-xl md:text-2xl" : "text-2xl md:text-3xl"
