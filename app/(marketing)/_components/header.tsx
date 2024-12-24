@@ -3,6 +3,8 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
+import Image from "next/image";
+import { cn } from "@/lib/utils";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -30,19 +32,27 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${
-        isScrolled
-          ? "h-16 bg-white bg-opacity-80 shadow-md"
-          : "h-20 md:h-24 bg-white"
+      className={`fixed bg-black text-white top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${
+        isScrolled ? "h-16 shadow-md" : "h-20 md:h-24"
       }`}
     >
       <div className=" mx-auto container max-w-7xl px-4 h-full flex items-center justify-between">
-        <Link href="/"
-          className={`font-bold transition-all duration-300 ease-in-out ${
+        <Link
+          href="/"
+          className={`font-bold  ${
             isScrolled ? "text-xl md:text-2xl" : "text-2xl md:text-3xl"
           }`}
         >
-          Simukuza
+          <Image
+            src="https://utfs.io/f/84aXfFFbF7G0FNpnsJvHiumMxpNarUk0XWRtAQjVevyqoB8Z"
+            alt="Simukuza Automotive"
+            width={200}
+            height={50}
+            className={cn(
+              "object-cover transition-all duration-300 ease-in-out",
+              isScrolled ? "w-44" : "w-56"
+            )}
+          />
         </Link>
         <nav className="hidden md:block">
           <ul className="flex space-x-4">
@@ -86,7 +96,10 @@ export default function Header() {
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="block py-2 hover:text-blue-600">
+                <Link
+                  href="/contact"
+                  className="block py-2 hover:text-blue-600"
+                >
                   Contact
                 </Link>
               </li>
