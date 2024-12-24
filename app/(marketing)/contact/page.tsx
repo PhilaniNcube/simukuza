@@ -22,8 +22,6 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <div className="container mx-auto px-4 py-24">
-
-
       <div className="grid md:grid-cols-2 gap-8">
         <Card>
           <CardHeader>
@@ -63,7 +61,7 @@ export default function ContactPage() {
             </CardHeader>
             <CardContent>
               <GoogleMapsEmbed
-                apiKey="AIzaSyA7PfdqRLo_exrxYW-cMjEDkOlPHSVWVds"
+                apiKey={process.env.NEXT_PUBLIC_GOGLE_MAPS_API_KEY!}
                 height={200}
                 width="100%"
                 mode="place"
