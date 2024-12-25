@@ -83,7 +83,7 @@ export default function Header() {
       </div>
       {isMobileMenuOpen && (
         <div className="md:hidden bg-white">
-          <nav className="container mx-auto px-4 py-2">
+          <nav className="container mx-auto px-4 py-2 text-black">
             <ul onClick={toggleMobileMenu} className="space-y-2">
               <li>
                 <Link href="/" className="block py-2 hover:text-blue-600">

@@ -22,7 +22,7 @@ export default async function HomepageHero() {
 
   return (
     <section className="relative overflow-hidden">
-      <div className="h-[600px] relative isolate">
+      <div className="h-[300px] md:h-[600px] relative isolate">
         <Image
           src="https://utfs.io/f/84aXfFFbF7G0oAWuV3l8G4JDPBi0SnTqR5MyOlxVXdt1Lg3f"
           alt="Toyota Aqua"
@@ -32,8 +32,8 @@ export default async function HomepageHero() {
           className="w-full h-full object-cover object-center-top"
         />
         <div className="absolute inset-0 h-full">
-          <div className="max-w-7xl mx-auto h-full flex items-center justify-end px-4">
-            <h1 className="text-white text-2xl md:text-4xl lg:text-6xl font-extrabold">
+          <div className="max-w-7xl mx-auto h-full flex items-center justify-center md:justify-end px-4">
+            <h1 className="md:text-white text-3xl md:text-4xl lg:text-6xl font-extrabold">
               NEW & USED <br />{" "}
               <span className="italic font-medium text-accent">Cars </span>
               <span className="text-md">For Sale</span>
@@ -43,7 +43,7 @@ export default async function HomepageHero() {
       </div>
       <div className="pt-4">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="flex md:flex-row flex-col justify-between items-start relative  md:h-[180px]">
+          <div className="flex flex-col-reverse md:flex-row justify-between items-start relative  md:h-[180px]">
             <div className="max-w-lg">
               <h1 className="text-4xl font-thin text-slate-500">
                 The road to your{" "}
