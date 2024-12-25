@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const LatestNews = () => {
   const newsItems = [
     {
@@ -57,7 +59,9 @@ const LatestNews = () => {
               className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
             >
               <div className="aspect-video relative bg-gray-200">
-                <img
+                <Image
+                  width={600}
+                  height={400}
                   src={item.image}
                   alt={item.title}
                   className="object-cover w-full h-full"
