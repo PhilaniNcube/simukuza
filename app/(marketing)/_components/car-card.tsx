@@ -54,7 +54,7 @@ const CarCard = ({car, carImages}:CarCardProps) => {
       <CardFooter>
         <div className="flex justify-end w-full">
           <Link href={`/cars/${car.id}`}>
-            <Button>View Details</Button>
+            <Button className="bg-accent">View Details</Button>
           </Link>
         </div>
       </CardFooter>
