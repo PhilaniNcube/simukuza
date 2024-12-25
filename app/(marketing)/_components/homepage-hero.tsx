@@ -92,7 +92,7 @@ export default async function HomepageHero() {
                     </Select>
                     <Select>
                       <SelectTrigger className="w-full">
-                        <SelectValue placeholder="Select a city" />
+                        <SelectValue placeholder="Select a city" className="" />
                       </SelectTrigger>
                       <SelectContent>
                         <SelectGroup>
@@ -132,24 +132,24 @@ export default async function HomepageHero() {
                   <div className="grid grid-cols-2 gap-3 mt-3 w-full">
                     <div className="w-full relative">
                       <span className="flex items-center justify-start absolute inset-0 pointer-events-none pl-3">
-                        <small className="text-md text-slate-500">$</small>
+                        <small className="text-md md:text-slate-500">$</small>
                       </span>
                       <Input
                         id="min_price"
                         name="min_price"
-                        className="pl-6"
+                        className="pl-6 placeholder:text-slate-50 lg:placeholder:text-slate-500"
                         placeholder="Min Price"
                         type="number"
                       />
                     </div>
                     <div className="w-full relative">
                       <span className="flex items-center justify-start absolute inset-0 pointer-events-none pl-3">
-                        <small className="text-md text-slate-500">$</small>
+                        <small className="text-md md:text-slate-500">$</small>
                       </span>
                       <Input
                         id="max_price"
                         name="max_price"
-                        className="pl-6"
+                        className="pl-6 placeholder:text-slate-50 lg:placeholder:text-slate-500"
                         placeholder="Max Price"
                         type="number"
                       />
@@ -160,7 +160,7 @@ export default async function HomepageHero() {
                       <Input
                         id="min_year"
                         name="min_year"
-                        className="pl-6"
+                        className="pl-6 placeholder:text-slate-50 lg:placeholder:text-slate-500"
                         placeholder="Min year"
                         type="number"
                       />
@@ -169,7 +169,7 @@ export default async function HomepageHero() {
                       <Input
                         id="max_year"
                         name="max_year"
-                        className="pl-6"
+                        className="pl-6 placeholder:text-slate-50 lg:placeholder:text-slate-500"
                         placeholder="Max year"
                         type="number"
                       />
