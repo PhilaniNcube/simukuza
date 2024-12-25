@@ -54,7 +54,7 @@ export default async function HomepageHero() {
               </h1>
             </div>
 
-            <Card className="w-full md:w-2/3 lg:w-1/3 shadow-xl rounded-2xl bg-white md:translate-y-[-200px]">
+            <Card className="w-full md:w-2/3 lg:w-1/3 shadow-xl rounded-2xl bg-accent-foreground md:bg-white md:translate-y-[-200px]">
               <CardContent className="py-4">
                 <form>
                   <div className="space-y-2">
