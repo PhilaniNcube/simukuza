@@ -1,4 +1,5 @@
 import Image from "next/image";
+import {formatDistance} from "date-fns";
 
 const LatestNews = () => {
   const newsItems = [
@@ -66,16 +67,20 @@ const LatestNews = () => {
                   alt={item.title}
                   className="object-cover w-full h-full"
                 />
-                <span className="absolute top-4 left-4 bg-accent text-white px-3 py-1 rounded-full text-sm">
-                  {item.category}
-                </span>
+
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
                 <p className="text-gray-600 mb-4">{item.description}</p>
                 <div className="flex items-center justify-between text-sm text-gray-500">
-                  <span>{item.date}</span>
-                  <span>By {item.author}</span>
+                  <p className="font-extralight italic">
+                    {" "}
+                    {item.category} {" "}|{" "}
+                    <span className="text-accent">
+                      {formatDistance(new Date(item.date), new Date())} ago
+                    </span>
+                  </p>
+
                 </div>
               </div>
             </div>
