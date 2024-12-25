@@ -28,6 +28,8 @@ export const newCarSchema = z.object({
   mileage: z.coerce.number().min(0),
   price: z.coerce.number().min(0),
   description: z.string().min(10, 'Description must be at least 10 characters'),
+  transmission: z.string(),
+  engine_type: z.string(),
 });
 
 export type NewCarFormValues = z.infer<typeof newCarSchema>;
@@ -36,11 +38,16 @@ export const updateCarSchema = z.object({
   id: z.coerce.number(),
   make: z.string(),
   model: z.string(),
-  year: z.coerce.number().min(1885).max(new Date().getFullYear() + 1),
+  year: z.coerce
+    .number()
+    .min(1885)
+    .max(new Date().getFullYear() + 1),
   mileage: z.coerce.number().min(0),
   price: z.coerce.number().min(0),
-  description: z.string().min(10, 'Description must be at least 10 characters'),
+  description: z.string().min(10, "Description must be at least 10 characters"),
   user_id: z.string().optional(),
+  transmission: z.string(),
+  engine_type: z.string(),
 });
 
 export type UpdateCarFormValues = z.infer<typeof updateCarSchema>;

@@ -14,6 +14,8 @@ export async function addCar(prevState:unknown, formData:FormData) {
     mileage: formData.get('mileage'),
     price: formData.get('price'),
     description: formData.get('description'),
+    transmission: formData.get('transmission'),
+    engine_type: formData.get('engine_type'),
   })
 
   if (!validatedFields.success) {
@@ -44,6 +46,8 @@ export async function addCar(prevState:unknown, formData:FormData) {
       description: validatedFields.data.description,
       user_id: userData.user.id,
       image_url: null,
+      transmission: validatedFields.data.transmission,
+      engine_type: validatedFields.data.engine_type,
     },
   ]).select("*").single();
 

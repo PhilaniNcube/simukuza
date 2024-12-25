@@ -41,6 +41,8 @@ const UpdateCarForm = ({car, makes}:UpdateCarFormProps) => {
       price: car.price,
       description: car.description || "",
       id: car.id,
+      transmission: car.transmission,
+      engine_type: car.engine_type,
     }
   });
 
@@ -102,6 +104,80 @@ const UpdateCarForm = ({car, makes}:UpdateCarFormProps) => {
           )}
           {state?.errors?.model && (
             <p className="text-red-500 text-sm mt-1">{state?.errors?.model}</p>
+          )}
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+          <Label htmlFor="transmission" className="block mb-2">
+            Transmission
+          </Label>
+          <Controller
+            name="transmission"
+            control={control}
+            render={({ field }) => (
+              <Select
+                name="transmission"
+                onValueChange={field.onChange}
+                defaultValue={field.value}
+              >
+                <SelectTrigger className="w-full">
+                  <SelectValue placeholder="Select transmission" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="automatic">Automatic</SelectItem>
+                  <SelectItem value="manual">Manual</SelectItem>
+                </SelectContent>
+              </Select>
+            )}
+          />
+          {errors.transmission && (
+            <p className="text-red-500 text-sm mt-1">
+              {errors.transmission.message}
+            </p>
+          )}
+          {state?.errors?.transmission && (
+            <p className="text-red-500 text-sm mt-1">
+              {state?.errors?.transmission}
+            </p>
+          )}
+        </div>
+
+        <div>
+          <Label htmlFor="engine_type" className="block mb-2">
+            Engine Type
+          </Label>
+          <Controller
+            name="engine_type"
+            control={control}
+            render={({ field }) => (
+              <Select
+                name="engine_type"
+                onValueChange={field.onChange}
+                defaultValue={field.value}
+              >
+                <SelectTrigger className="w-full">
+                  <SelectValue placeholder="Select engine type" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="petrol">Petrol</SelectItem>
+                  <SelectItem value="diesel">Diesel</SelectItem>
+                  <SelectItem value="hybrid">Hybrid</SelectItem>
+                  <SelectItem value="electric">Electric</SelectItem>
+                </SelectContent>
+              </Select>
+            )}
+          />
+          {errors.engine_type && (
+            <p className="text-red-500 text-sm mt-1">
+              {errors.engine_type.message}
+            </p>
+          )}
+          {state?.errors?.engine_type && (
+            <p className="text-red-500 text-sm mt-1">
+              {state?.errors?.engine_type}
+            </p>
           )}
         </div>
       </div>

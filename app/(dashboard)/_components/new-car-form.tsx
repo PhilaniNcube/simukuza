@@ -19,7 +19,11 @@ import {
 } from "@/components/ui/select";
 import { redirect } from "next/navigation";
 
-export default function NewCarForm({makes}:{makes: {id: number, name: string}[]}) {
+export default function NewCarForm({
+  makes,
+}: {
+  makes: { id: number; name: string }[];
+}) {
   const [state, formAction, isPending] = useActionState(addCar, null);
   const {
     register,
@@ -29,7 +33,7 @@ export default function NewCarForm({makes}:{makes: {id: number, name: string}[]}
     resolver: zodResolver(newCarSchema),
   });
 
-  if(state?.status === 200) {
+  if (state?.status === 200) {
     redirect(`/dashboard/cars/${state.data?.id}`);
   }
 
@@ -39,8 +43,6 @@ export default function NewCarForm({makes}:{makes: {id: number, name: string}[]}
         startTransition(() => {
           formAction(formData);
         });
-
-
       }}
       className="space-y-6 max-w-4xl p-6 bg-white rounded-lg shadow-md"
     >
@@ -53,7 +55,11 @@ export default function NewCarForm({makes}:{makes: {id: number, name: string}[]}
             name="make"
             control={control}
             render={({ field }) => (
-              <Select name="make" onValueChange={field.onChange} defaultValue={field.value}>
+              <Select
+                name="make"
+                onValueChange={field.onChange}
+                defaultValue={field.value}
+              >
                 <SelectTrigger className="w-full">
                   <SelectValue placeholder="Select a car make" />
                 </SelectTrigger>
@@ -85,6 +91,80 @@ export default function NewCarForm({makes}:{makes: {id: number, name: string}[]}
           )}
           {state?.errors?.model && (
             <p className="text-red-500 text-sm mt-1">{state?.errors?.model}</p>
+          )}
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+          <Label htmlFor="transmission" className="block mb-2">
+            Transmission
+          </Label>
+          <Controller
+            name="transmission"
+            control={control}
+            render={({ field }) => (
+              <Select
+                name="transmission"
+                onValueChange={field.onChange}
+                defaultValue={field.value}
+              >
+                <SelectTrigger className="w-full">
+                  <SelectValue placeholder="Select transmission" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="automatic">Automatic</SelectItem>
+                  <SelectItem value="manual">Manual</SelectItem>
+                </SelectContent>
+              </Select>
+            )}
+          />
+          {errors.transmission && (
+            <p className="text-red-500 text-sm mt-1">
+              {errors.transmission.message}
+            </p>
+          )}
+          {state?.errors?.transmission && (
+            <p className="text-red-500 text-sm mt-1">
+              {state?.errors?.transmission}
+            </p>
+          )}
+        </div>
+
+        <div>
+          <Label htmlFor="engine_type" className="block mb-2">
+           Engine Type
+          </Label>
+          <Controller
+            name="engine_type"
+            control={control}
+            render={({ field }) => (
+              <Select
+                name="engine_type"
+                onValueChange={field.onChange}
+                defaultValue={field.value}
+              >
+                <SelectTrigger className="w-full">
+                  <SelectValue placeholder="Select engine type" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="petrol">Petrol</SelectItem>
+                  <SelectItem value="diesel">Diesel</SelectItem>
+                  <SelectItem value="hybrid">Hybrid</SelectItem>
+                  <SelectItem value="electric">Electric</SelectItem>
+                </SelectContent>
+              </Select>
+            )}
+          />
+          {errors.engine_type && (
+            <p className="text-red-500 text-sm mt-1">
+              {errors.engine_type.message}
+            </p>
+          )}
+          {state?.errors?.engine_type && (
+            <p className="text-red-500 text-sm mt-1">
+              {state?.errors?.engine_type}
+            </p>
           )}
         </div>
       </div>

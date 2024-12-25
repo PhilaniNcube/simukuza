@@ -32,7 +32,7 @@ export default async function HomepageHero() {
           className="w-full h-full object-cover object-center-top"
         />
         <div className="absolute inset-0 h-full">
-          <div className="max-w-7xl mx-auto h-full flex items-center justify-end">
+          <div className="max-w-7xl mx-auto h-full flex items-center justify-end px-4">
             <h1 className="text-white text-2xl md:text-4xl lg:text-6xl font-extrabold">
               NEW & USED <br />{" "}
               <span className="italic font-medium text-accent">Cars </span>
@@ -41,11 +41,11 @@ export default async function HomepageHero() {
           </div>
         </div>
       </div>
-      <div className="py-10">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex justify-between items-center">
+      <div className="pt-4">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="flex md:flex-row flex-col justify-between items-start relative  md:h-[180px]">
             <div className="max-w-lg">
-              <h1 className="text-4xl md:text-6xl font-thin text-slate-500">
+              <h1 className="text-4xl font-thin text-slate-500">
                 The road to your{" "}
                 <span className="text-accent font-extrabold italic">
                   dream car
@@ -54,7 +54,7 @@ export default async function HomepageHero() {
               </h1>
             </div>
 
-            <Card className="w-1/3 shadow-xl rounded-2xl bg-white md:translate-y-[-150px]">
+            <Card className="w-full md:w-2/3 lg:w-1/3 shadow-xl rounded-2xl bg-white md:translate-y-[-200px]">
               <CardContent className="py-4">
                 <form>
                   <div className="space-y-2">

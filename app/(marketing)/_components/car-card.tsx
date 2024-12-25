@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 import { formatDistance, formatToUsd } from "@/lib/utils";
 import { Database } from "@/utils/schema";
-import { Calendar, RulerIcon } from "lucide-react";
+import { Clock1, CogIcon, FuelIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -13,8 +13,8 @@ type CarCardProps = {
 
 const CarCard = ({car, carImages}:CarCardProps) => {
   return (
-    <Card>
-      <CardHeader className="p-0">
+    <Card className="shadow-lg overflow-hidden rounded-2xl">
+      <CardHeader className="p-0 ">
         <div className="aspect-video relative">
           <Image
             src={`https://agdxtilhlswciswxjeqt.supabase.co/storage/v1/object/public/car_images/${carImages[0].image_url}`}
@@ -26,19 +26,28 @@ const CarCard = ({car, carImages}:CarCardProps) => {
         </div>
       </CardHeader>
       <CardContent className="mt-4">
-        <h2 className="text-xl font-semibold text-gray-800">
-          {car.make} {car.model}
-        </h2>
-        <p className="text-lg my-3 text-gray-500">{formatToUsd(car.price)}</p>
-        {/* list the features */}
-        <div className="flex justify-between flex-wrap">
-          <span>
-            <Calendar size={16} className="inline-block mr-1" />
-            {car.year}
+        <h2 className="text-lg text-gray-800">
+          {car.year}{" "}
+          <span className="font-semibold">
+            {car.make} {car.model}
           </span>
+        </h2>
+        <p className="text-3xl my-1 text-accent font-extrabold italic">
+          USD {formatToUsd(car.price)}
+        </p>
+        {/* list the features */}
+        <div className="flex text-accent justify-between flex-wrap">
           <span>
-            <RulerIcon size={16} className="inline-block mr-1" />
+            <Clock1 size={16} className="inline-block mr-1" />
             {formatDistance(car.mileage!)}{" "}
+          </span>
+          <span className="capitalize">
+            <CogIcon size={16} className="inline-block mr-1" />
+            {car.transmission}
+          </span>
+          <span className="capitalize">
+            <FuelIcon size={16} className="inline-block mr-1" />
+            {car.engine_type}
           </span>
         </div>
       </CardContent>

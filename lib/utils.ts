@@ -18,7 +18,7 @@ export const formatDistance = (distance: number) => {
   return new Intl.NumberFormat("en-ZA", {
     style: "unit",
     unit: "kilometer",
-    unitDisplay: "long",
+    unitDisplay: "short",
     maximumFractionDigits: 0,
     notation:  "standard",
   }).format(distance);
