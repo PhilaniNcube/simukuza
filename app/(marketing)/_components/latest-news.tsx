@@ -60,8 +60,8 @@ const LatestNews = () => {
             >
               <div className="aspect-video relative bg-gray-200">
                 <Image
-                  width={600}
-                  height={400}
+                  width={1000}
+                  height={1000}
                   src={item.image}
                   alt={item.title}
                   className="object-cover w-full h-full"
