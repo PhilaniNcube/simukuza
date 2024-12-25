@@ -54,14 +54,14 @@ export default async function HomepageHero() {
               </h1>
             </div>
 
-            <Card className="w-full md:w-2/3 lg:w-1/3 shadow-xl rounded-2xl bg-accent-foreground md:bg-white md:translate-y-[-200px]">
+            <Card className="w-full md:w-2/3 lg:w-1/3 shadow-xl rounded-2xl bg-accent-foreground text-white md:text-black md:bg-white md:translate-y-[-200px]">
               <CardContent className="py-4">
                 <form>
                   <div className="space-y-2">
                     <div className="relative">
                       <Input
                         id="input-26"
-                        className="peer pe-9 ps-9 rounded-full shadow-lg h-12"
+                        className="peer pe-9 ps-9 rounded-full shadow-lg h-12 placeholder:text-white md:placeholder:text-slate-400"
                         placeholder="try 'Toyota Aqua'"
                         type="search"
                       />
@@ -69,7 +69,7 @@ export default async function HomepageHero() {
                         <Search
                           size={16}
                           strokeWidth={2}
-                          className="stroke-accent"
+                          className="stroke-white md:stroke-accent"
                         />
                       </div>
                     </div>
@@ -121,6 +121,7 @@ export default async function HomepageHero() {
                         <RadioGroupItem
                           value="monthly_installment"
                           id="monthly_installment"
+                          className=""
                         />
                         <Label htmlFor="monthly_installment">
                           Monthly Installment
