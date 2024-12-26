@@ -24,13 +24,22 @@ export default async function HomepageHero() {
     <section className="relative overflow-hidden">
       <div className="h-[300px] md:h-[600px] relative isolate">
         <Image
-          src="https://utfs.io/f/84aXfFFbF7G07xGZpN6rSPDRLtyE6JYV4FAq7Z5jwWozHnxk"
+          src="https://utfs.io/f/84aXfFFbF7G0Rb1aZPC1b4xycaLGKhZkQFAwzdC0SEJtMopj"
           alt="Toyota Aqua"
           width="2500"
           height="800"
           quality={100}
           priority
-          className="w-full h-full object-cover object-center-top"
+          className="hidden md:block w-full h-full object-cover object-center-top"
+        />
+        <Image
+          src="https://utfs.io/f/84aXfFFbF7G0joVrhnqOzQ8vq1sG36wDF9XZtnAJrpfk0l2x"
+          alt="Toyota Aqua"
+          width="20000"
+          height="1000"
+          quality={100}
+          priority
+          className="block md:hidden w-full h-full object-cover object-center-top"
         />
       </div>
       <div className="pt-4">
