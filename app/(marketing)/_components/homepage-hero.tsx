@@ -26,8 +26,9 @@ export default async function HomepageHero() {
         <Image
           src="https://utfs.io/f/84aXfFFbF7G07xGZpN6rSPDRLtyE6JYV4FAq7Z5jwWozHnxk"
           alt="Toyota Aqua"
-          width="1920"
-          height="600"
+          width="2500"
+          height="800"
+          quality={100}
           priority
           className="w-full h-full object-cover object-center-top"
         />
