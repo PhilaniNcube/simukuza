@@ -1,5 +1,5 @@
 import { createClient } from "@/utils/supabase/server";
-import CarCard from "./car-card";
+import FeaturedCarCarousel from "./car-carousel";
 
 const FeaturedCars = async () => {
   const supabase = await createClient();
@@ -13,28 +13,13 @@ const FeaturedCars = async () => {
     .from("car_images")
     .select("*");
 
-  if (error) {
+  if (error || carImagesError) {
     return <div>error</div>;
   }
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-8">
-
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {data.map((car) => {
-          if (!carImages || carImagesError) {
-            return null;
-          }
-
-          return (
-            <CarCard
-              key={car.id}
-              car={car}
-              carImages={carImages?.filter((image) => image.car_id === car.id)}
-            />
-          );
-        })}
-      </div>
+     <FeaturedCarCarousel data={data} carImages={carImages} />
     </div>
   );
 };
