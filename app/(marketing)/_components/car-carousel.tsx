@@ -36,7 +36,7 @@ const FeaturedCarCarousel = ({data, carImages}:FeaturedCarCarouselProps) => {
                 return (
                   <div
                     key={car.id}
-                    className="flex-[0_0_90%] min-w-0 sm:flex-[0_0_45%] lg:flex-[0_0_30%]"
+                    className="flex-[0_0_70%] min-w-0 sm:flex-[0_0_55%] md:flex-[0_0_48%] lg:flex-[0_0_34%]"
                   >
                     <CarCard
                       car={car}

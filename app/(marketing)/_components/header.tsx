@@ -7,6 +7,7 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { User } from "@supabase/supabase-js";
 import { Button } from "@/components/ui/button";
+import { logout } from "@/actions/logout";
 
 export default function Header({user}:{user:User | null}) {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -75,11 +76,15 @@ export default function Header({user}:{user:User | null}) {
             </li>
             {user ? (
               <>
-
                 <li>
-                  <Button variant="outline" className="border-accent bg-transparent hover:text-white">
-                    Logout
-                  </Button>
+                  <form action={logout}>
+                    <Button
+                      variant="outline"
+                      className="border-accent bg-transparent hover:text-white"
+                    >
+                      Logout
+                    </Button>
+                  </form>
                 </li>
               </>
             ) : (
