@@ -126,6 +126,34 @@ export default function Header({user}:{user:User | null}) {
                   Contact
                 </Link>
               </li>
+              {user ? (
+                <>
+                  <li>
+                    <form action={logout}>
+                      <Button
+                        variant="outline"
+                        className="border-accent bg-transparent hover:text-white"
+                      >
+                        Logout
+                      </Button>
+                    </form>
+                  </li>
+                </>
+              ) : (
+                <li>
+                  <Link
+                    href="/login"
+                    className="block py-2 "
+                  >
+                    <Button
+                      variant="outline"
+                      className="border-accent bg-transparent hover:text-white"
+                    >
+                      Login
+                    </Button>
+                  </Link>
+                </li>
+              )}
             </ul>
           </nav>
         </div>

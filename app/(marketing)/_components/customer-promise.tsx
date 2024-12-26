@@ -2,7 +2,7 @@ import { CircleCheck } from "lucide-react";
 
 const CustomerPromise = () => {
   return (
-    <section className="text-white">
+    <section className="text-white px-4 lg:px-0">
       <div className="bg-blue-950 max-w-7xl mx-auto px-8 py-16 rounded-2xl">
         <div className="grid grid-cols-4 gap-4">
           <div className="col-span-4 md:col-span-2">
