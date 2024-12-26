@@ -24,22 +24,13 @@ export default async function HomepageHero() {
     <section className="relative overflow-hidden">
       <div className="h-[300px] md:h-[600px] relative isolate">
         <Image
-          src="https://utfs.io/f/84aXfFFbF7G0oAWuV3l8G4JDPBi0SnTqR5MyOlxVXdt1Lg3f"
+          src="https://utfs.io/f/84aXfFFbF7G0ZczTQnJD3xpgoF1hsmNnyjB0cWfP9GEQYXlR"
           alt="Toyota Aqua"
           width="2000"
           height="536"
           priority
           className="w-full h-full object-cover object-center-top"
         />
-        <div className="absolute inset-0 h-full">
-          <div className="max-w-7xl mx-auto h-full flex items-center justify-center md:justify-end px-4">
-            <h1 className="md:text-white text-3xl md:text-4xl lg:text-6xl font-extrabold">
-              NEW & USED <br />{" "}
-              <span className="italic font-medium text-accent">Cars </span>
-              <span className="text-md">For Sale</span>
-            </h1>
-          </div>
-        </div>
       </div>
       <div className="pt-4">
         <div className="max-w-7xl mx-auto px-4">
