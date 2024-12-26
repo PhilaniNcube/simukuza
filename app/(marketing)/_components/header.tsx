@@ -53,7 +53,7 @@ export default function Header({user}:{user:User | null}) {
             height={50}
             className={cn(
               "object-cover transition-all duration-300 ease-in-out",
-              isScrolled ? "w-44" : "w-56"
+              isScrolled ? "w-52" : "w-56"
             )}
           />
         </Link>
