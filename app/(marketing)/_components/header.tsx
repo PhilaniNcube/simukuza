@@ -5,8 +5,10 @@ import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
+import { User } from "@supabase/supabase-js";
+import { Button } from "@/components/ui/button";
 
-export default function Header() {
+export default function Header({user}:{user:User | null}) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -55,7 +57,7 @@ export default function Header() {
           />
         </Link>
         <nav className="hidden md:block">
-          <ul className="flex space-x-4">
+          <ul className="flex space-x-4 items-center">
             <li>
               <Link href="/" className="hover:text-blue-600">
                 Home
@@ -71,6 +73,22 @@ export default function Header() {
                 Contact
               </Link>
             </li>
+            {user ? (
+              <>
+
+                <li>
+                  <Button variant="outline" className="border-accent bg-transparent hover:text-white">
+                    Logout
+                  </Button>
+                </li>
+              </>
+            ) : (
+              <li>
+                <Link href="/login" className="hover:text-blue-600">
+                  Login
+                </Link>
+              </li>
+            )}
           </ul>
         </nav>
         <button

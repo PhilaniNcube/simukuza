@@ -3,7 +3,7 @@ import { CircleCheck } from "lucide-react";
 const CustomerPromise = () => {
   return (
     <section className="text-white">
-      <div className="bg-blue-950 max-w-7xl mx-auto px-8 py-6 rounded-2xl">
+      <div className="bg-blue-950 max-w-7xl mx-auto px-8 py-16 rounded-2xl">
         <div className="grid grid-cols-4 gap-4">
           <div className="col-span-4 md:col-span-2">
             <h3 className="text-xl md:text-2xl lg:text-3xl text-balance md:leading-4">
@@ -14,7 +14,7 @@ const CustomerPromise = () => {
               as standard
             </h3>
             <p className="text-xs md:text-base lg:text-lg mt-4">
-              All Chorley Group vehicles go through a detailed inspection by our
+              All <span className="italic text-blue-500">Simukuza Auto</span> vehicles go through a detailed inspection by our
               manufacturer trained technicians for your peace of mind
             </p>
           </div>
@@ -57,11 +57,7 @@ const CustomerPromise = () => {
             </div>
           </div>
         </div>{" "}
-        <div className="flex justify-end mt-3">
-          <h4 className="text-xl md:text-2xl lg:text-3xl text-balance leading-4">
-            <span className="text-blue-500">Chorley</span>Care
-          </h4>
-        </div>
+
       </div>
     </section>
   );

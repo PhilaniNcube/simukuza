@@ -45,10 +45,10 @@ const BuyingEssentials = () => {
 
         <div className="relative pt-8">
           <div className="overflow-hidden" ref={emblaRef}>
-            <div className="flex gap-6 mx-auto">
+            <div className="flex gap-6 mx-auto py-16">
               {essentials.map((item, index) => (
                 <div
-                  className="flex-[0_0_90%] min-w-0 sm:flex-[0_0_45%] lg:flex-[0_0_30%]"
+                  className="flex-[0_0_90%] min-w-0 sm:flex-[0_0_45%] lg:flex-[0_0_33%]"
                   key={index}
                 >
                   <Card>

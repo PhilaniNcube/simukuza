@@ -9,7 +9,7 @@ const LatestNews = () => {
       category: "Review",
       image:
         "https://utfs.io/f/84aXfFFbF7G0eYpLkwPHJs6Viruw31flNKASm9MZDTnFEYat",
-      date: "March 15, 2024",
+      date: "June 15, 2024",
       author: "John Smith",
     },
     {
@@ -18,7 +18,7 @@ const LatestNews = () => {
       category: "News",
       image:
         "https://utfs.io/f/84aXfFFbF7G0AGIpr81F4ADrImbfYUOlc86a32eSKWEixvN0",
-      date: "March 14, 2024",
+      date: "October 20, 2024",
       author: "Sarah Johnson",
     },
     {
@@ -27,7 +27,7 @@ const LatestNews = () => {
       category: "News",
       image:
         "https://utfs.io/f/84aXfFFbF7G0hGBNQooJoaVLq0KUWs6xvwimzRND3ptgdlB4",
-      date: "March 13, 2024",
+      date: "December 13, 2024",
       author: "Mike Brown",
     },
 
@@ -37,7 +37,7 @@ const LatestNews = () => {
       category: "Guide",
       image:
         "https://utfs.io/f/84aXfFFbF7G0YB2EBmcwb8A9K4a1cBH3RpVEvzWFMmyPkSOD",
-      date: "March 11, 2024",
+      date: "November 3, 2024",
       author: "Tom Davis",
     },
 
@@ -67,7 +67,6 @@ const LatestNews = () => {
                   alt={item.title}
                   className="object-cover w-full h-full"
                 />
-
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
@@ -75,12 +74,11 @@ const LatestNews = () => {
                 <div className="flex items-center justify-between text-sm text-gray-500">
                   <p className="font-extralight italic">
                     {" "}
-                    {item.category} {" "}|{" "}
+                    <span className="font-normal text-black">{item.category}</span> |{" "}
                     <span className="text-accent">
                       {formatDistance(new Date(item.date), new Date())} ago
                     </span>
                   </p>
-
                 </div>
               </div>
             </div>
