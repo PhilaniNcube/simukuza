@@ -47,7 +47,6 @@ export async function addCar(prevState:unknown, formData:FormData) {
       price: validatedFields.data.price,
       description: validatedFields.data.description,
       user_id: userData.user.id,
-      image_url: null,
       transmission: validatedFields.data.transmission,
       engine_type: validatedFields.data.engine_type,
       capacity: validatedFields.data.capacity,
