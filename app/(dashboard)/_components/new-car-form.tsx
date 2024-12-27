@@ -97,6 +97,66 @@ export default function NewCarForm({
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
+          <Label htmlFor="capacity" className="block mb-2">
+            Capacity
+          </Label>
+          <Input
+            id="capacity"
+            type="number"
+            {...register("capacity", { valueAsNumber: true })}
+            className="w-full"
+          />
+          {errors.capacity && (
+            <p className="text-red-500 text-sm mt-1">
+              {errors.capacity.message}
+            </p>
+          )}
+          {state?.errors?.capacity && (
+            <p className="text-red-500 text-sm mt-1">
+              {state?.errors?.capacity}
+            </p>
+          )}
+        </div>
+
+        <div>
+          <Label htmlFor="condition" className="block mb-2">
+            Condition
+          </Label>
+          <Controller
+            name="condition"
+            control={control}
+            render={({ field }) => (
+              <Select
+                name="condition"
+                onValueChange={field.onChange}
+                defaultValue={field.value}
+              >
+                <SelectTrigger className="w-full">
+                  <SelectValue placeholder="Select a car condition" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="new">New</SelectItem>
+                  <SelectItem value="used">Used</SelectItem>
+                  <SelectItem value="recent_import">Recent Import</SelectItem>
+                </SelectContent>
+              </Select>
+            )}
+          />
+          {errors.condition && (
+            <p className="text-red-500 text-sm mt-1">
+              {errors.condition.message}
+            </p>
+          )}
+          {state?.errors?.condition && (
+            <p className="text-red-500 text-sm mt-1">
+              {state?.errors?.condition}
+            </p>
+          )}
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
           <Label htmlFor="transmission" className="block mb-2">
             Transmission
           </Label>
@@ -133,7 +193,7 @@ export default function NewCarForm({
 
         <div>
           <Label htmlFor="engine_type" className="block mb-2">
-           Engine Type
+            Engine Type
           </Label>
           <Controller
             name="engine_type"

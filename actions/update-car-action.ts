@@ -17,6 +17,8 @@ export async function updateCar(prevState:unknown, formData:FormData) {
     id: formData.get('id'),
     transmission: formData.get('transmission'),
     engine_type: formData.get('engine_type'),
+    capacity: formData.get('capacity'),
+    condition: formData.get('condition'),
   })
 
   if (!validatedFields.success) {
@@ -48,6 +50,8 @@ const { data, error } = await supabase.from("cars").update({
   image_url: null,
   transmission: validatedFields.data.transmission,
   engine_type: validatedFields.data.engine_type,
+  capacity: validatedFields.data.capacity,
+  condition: validatedFields.data.condition,
 }).eq("id", validatedFields.data.id).select('*').single();
 
 if (error) {

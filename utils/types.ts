@@ -30,6 +30,8 @@ export const newCarSchema = z.object({
   description: z.string().min(10, 'Description must be at least 10 characters'),
   transmission: z.string(),
   engine_type: z.string(),
+  condition: z.string(),
+  capacity: z.coerce.number(),
 });
 
 export type NewCarFormValues = z.infer<typeof newCarSchema>;
@@ -48,6 +50,8 @@ export const updateCarSchema = z.object({
   user_id: z.string().optional(),
   transmission: z.string(),
   engine_type: z.string(),
+  condition: z.string(),
+  capacity: z.coerce.number(),
 });
 
 export type UpdateCarFormValues = z.infer<typeof updateCarSchema>;

@@ -161,6 +161,8 @@ export type Database = {
       };
       cars: {
         Row: {
+          capacity: number | null;
+          condition: string | null;
           created_at: string;
           description: string;
           engine_type: string;
@@ -177,6 +179,8 @@ export type Database = {
           year: number;
         };
         Insert: {
+          capacity?: number | null;
+          condition?: string | null;
           created_at?: string;
           description: string;
           engine_type: string;
@@ -193,6 +197,8 @@ export type Database = {
           year: number;
         };
         Update: {
+          capacity?: number | null;
+          condition?: string | null;
           created_at?: string;
           description?: string;
           engine_type?: string;
