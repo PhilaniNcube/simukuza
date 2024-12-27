@@ -118,6 +118,7 @@ const UpdateCarForm = ({car, makes}:UpdateCarFormProps) => {
           <Input
             id="capacity"
             type="number"
+            step={0.1}
             {...register("capacity", { valueAsNumber: true })}
             className="w-full"
           />

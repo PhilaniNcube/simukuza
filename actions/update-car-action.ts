@@ -21,6 +21,8 @@ export async function updateCar(prevState:unknown, formData:FormData) {
     condition: formData.get('condition'),
   })
 
+  console.log(JSON.stringify(validatedFields));
+
   if (!validatedFields.success) {
     return {
       status: 400,
@@ -54,6 +56,7 @@ const { data, error } = await supabase.from("cars").update({
   condition: validatedFields.data.condition,
 }).eq("id", validatedFields.data.id).select('*').single();
 
+console.log(error, data);
 if (error) {
   return {
     status: 500,
