@@ -1,6 +1,7 @@
 "use client";
 
 import { addFeature } from "@/actions/add-feature";
+import { deleteFeature } from "@/actions/delete-feature";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -67,7 +68,12 @@ const AddCarFeature = ({ car_id, features }: AddCarFeatureProps) => {
             key={feature.id}
             className="cursor-pointer flex gap-2"
             onClick={() => {
-              console.log("Feature clicked");
+              startTransition(() => {
+                setOptimisticFeatures((prev) =>
+                  prev.filter((item) => item.id !== feature.id)
+                );
+                deleteFeature(car_id, feature.id);
+              });
             }}
           >
             <span>

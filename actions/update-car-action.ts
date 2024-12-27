@@ -8,6 +8,9 @@ export async function updateCar(prevState:unknown, formData:FormData) {
 
   const supabase = await createClient();
 
+  const year = formData.get('year');
+  console.log({year});
+
   const validatedFields = updateCarSchema.safeParse({
     make: formData.get('make'),
     model: formData.get('model'),
@@ -21,6 +24,8 @@ export async function updateCar(prevState:unknown, formData:FormData) {
     capacity: formData.get('capacity'),
     condition: formData.get('condition'),
   })
+
+  console.log(JSON.stringify(validatedFields));
 
 
 
