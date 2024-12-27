@@ -3,7 +3,7 @@ import { createClient } from "@/utils/supabase/server";
 export async function getCars() {
   const supabase = await createClient();
 
-  const { data, error } = await supabase.from("cars").select("*");
+  const { data, error } = await supabase.from("cars").select("*").eq("sold", false);
 
   if (error || !data || data.length === 0) {
     return []
