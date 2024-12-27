@@ -103,6 +103,7 @@ export default function NewCarForm({
           <Input
             id="capacity"
             type="number"
+            step="0.01"
             {...register("capacity", { valueAsNumber: true })}
             className="w-full"
           />
