@@ -9,7 +9,6 @@ const MainCarsList = async () => {
     .from("cars")
     .select("*")
     .eq("sold", false)
-    .limit(3);
   const { data: carImages, error: carImagesError } = await supabase
     .from("car_images")
     .select("*");
