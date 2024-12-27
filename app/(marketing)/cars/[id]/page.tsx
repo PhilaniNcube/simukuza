@@ -16,7 +16,7 @@ const CarPage = async ({params}: {params:Promise<{id:number}>}) => {
     return <div>Car not found</div>;
   }
 
-  console.log(car, carImages, carFeatures);
+
 
   return <div className="mx-auto max-w-7xl px-4 py-24">
     <CarDetails car={car} car_images={carImages} features={carFeatures} />

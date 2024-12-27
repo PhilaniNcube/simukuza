@@ -2,7 +2,7 @@ import AddCarFeature from "@/app/(dashboard)/_components/add-car-feature";
 import UpdateCarForm from "@/app/(dashboard)/_components/update-car-form";
 import ImageUpload from "@/app/(dashboard)/_components/upload-image";
 import { getMakes } from "@/lib/fetchers/car-makes";
-import { getCar, getCarImages, getPublicUrl } from "@/lib/fetchers/cars";
+import { getCar, getCarImages } from "@/lib/fetchers/cars";
 import { getCarFeatures } from "@/lib/fetchers/features";
 
 const CarPage = async ({ params }: { params: Promise<{ id: number }> }) => {
@@ -15,12 +15,9 @@ const CarPage = async ({ params }: { params: Promise<{ id: number }> }) => {
 
   const [car, makes, images, features] = await Promise.all([carData, makesData, imagesData, featuresData]);
 
-  // map through the images and get the public url
-  const imageUrls = await Promise.all(images.map(async (image) => {
-    return await getPublicUrl(image);
-  }));
 
-  console.log(imageUrls);
+
+
 
 
   if (!car) {

@@ -21,6 +21,7 @@ import { updateCar } from "@/actions/update-car-action";
 
 
 
+
 type UpdateCarFormProps = {
   car: Database['public']['Tables']['cars']['Row'];
   makes: Database['public']['Tables']['car_makes']['Row'][];
@@ -39,18 +40,18 @@ const UpdateCarForm = ({car, makes}:UpdateCarFormProps) => {
   } = useForm<UpdateCarFormValues>({
     resolver: zodResolver(updateCarSchema),
     defaultValues: {
-      make: car.make || state?.data?.make,
-      model: car.model || state?.data?.model,
-      year: car.year || state?.data?.year,
-      mileage: car.mileage || state?.data?.mileage,
-      price: car.price || state?.data?.price,
-      description: car.description || state?.data?.description,
+      make: state?.data?.make || car.make,
+      model: state?.data?.model || car.model,
+      year: state?.data?.year || car.year,
+      mileage: state?.data?.mileage || car.mileage,
+      price: state?.data?.price || car.price,
+      description: state?.data?.description || car.description,
       id: car.id,
-      transmission: car.transmission || state?.data?.transmission,
-      engine_type: car.engine_type || state?.data?.engine_type,
-      capacity: car.capacity && state === null ? car.capacity : 0,
-      condition: car.condition ? car.condition : "new",
-    }
+      transmission: state?.data?.transmission || car.transmission,
+      engine_type: state?.data?.engine_type || car.engine_type,
+      capacity: state?.data?.capacity || car.capacity,
+      condition: state?.data?.condition || car.condition,
+    },
   });
 
 
@@ -61,8 +62,7 @@ const UpdateCarForm = ({car, makes}:UpdateCarFormProps) => {
       action={(formData: FormData) => {
         startTransition( () => {
            formAction(formData);
-        });
-
+          });
       }}
       className="space-y-6 max-w-4xl p-6 bg-white rounded-lg shadow-md"
     >
@@ -124,7 +124,7 @@ const UpdateCarForm = ({car, makes}:UpdateCarFormProps) => {
           <Input
             id="capacity"
             type="number"
-            step={0.1}
+            step="0.1"
             {...register("capacity", { valueAsNumber: true })}
             className="w-full"
           />

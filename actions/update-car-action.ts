@@ -2,6 +2,7 @@
 
 import { createClient } from "@/utils/supabase/server";
 import { updateCarSchema } from "@/utils/types";
+import { revalidatePath } from "next/cache";
 
 export async function updateCar(prevState:unknown, formData:FormData) {
 
@@ -41,6 +42,8 @@ export async function updateCar(prevState:unknown, formData:FormData) {
     };
 }
 
+console.log(validatedFields.data.capacity);
+
 const { data, error } = await supabase.from("cars").update({
   make: validatedFields.data.make,
   model: validatedFields.data.model,
@@ -55,6 +58,8 @@ const { data, error } = await supabase.from("cars").update({
   condition: validatedFields.data.condition,
 }).eq("id", validatedFields.data.id).select('*').single();
 
+console.log(data);
+
 
 if (error) {
   return {
@@ -62,6 +67,8 @@ if (error) {
     message: error.message,
   };
 }
+
+revalidatePath(`/dashboard/cars/${data.id}`, "page");
 
 return {
   status: 200,
