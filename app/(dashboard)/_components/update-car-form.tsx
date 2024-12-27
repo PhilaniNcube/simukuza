@@ -19,6 +19,8 @@ import {
 import { updateCar } from "@/actions/update-car-action";
 
 
+
+
 type UpdateCarFormProps = {
   car: Database['public']['Tables']['cars']['Row'];
   makes: Database['public']['Tables']['car_makes']['Row'][];
@@ -26,7 +28,10 @@ type UpdateCarFormProps = {
 
 const UpdateCarForm = ({car, makes}:UpdateCarFormProps) => {
 
-  const [state, formAction, isPending] = useActionState(updateCar, null);
+
+  const [state, formAction, isPending] = useActionState(updateCar, undefined);
+
+
   const {
     register,
     control,
@@ -34,16 +39,16 @@ const UpdateCarForm = ({car, makes}:UpdateCarFormProps) => {
   } = useForm<UpdateCarFormValues>({
     resolver: zodResolver(updateCarSchema),
     defaultValues: {
-      make: car.make,
-      model: car.model,
-      year: car.year,
-      mileage: car.mileage || 0,
-      price: car.price,
-      description: car.description || "",
+      make: car.make || state?.data?.make,
+      model: car.model || state?.data?.model,
+      year: car.year || state?.data?.year,
+      mileage: car.mileage || state?.data?.mileage,
+      price: car.price || state?.data?.price,
+      description: car.description || state?.data?.description,
       id: car.id,
-      transmission: car.transmission,
-      engine_type: car.engine_type,
-      capacity: car.capacity || 0,
+      transmission: car.transmission || state?.data?.transmission,
+      engine_type: car.engine_type || state?.data?.engine_type,
+      capacity: car.capacity && state === null ? car.capacity : 0,
       condition: car.condition ? car.condition : "new",
     }
   });
@@ -54,9 +59,10 @@ const UpdateCarForm = ({car, makes}:UpdateCarFormProps) => {
   return (
     <form
       action={(formData: FormData) => {
-        startTransition(() => {
-          formAction(formData);
+        startTransition( () => {
+           formAction(formData);
         });
+
       }}
       className="space-y-6 max-w-4xl p-6 bg-white rounded-lg shadow-md"
     >
