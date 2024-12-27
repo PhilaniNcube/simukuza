@@ -72,14 +72,11 @@ export async function uploadImage(prevState: unknown, formData: FormData) {
     };
   }
 
-  // update the car with the image url
+  // get the car data
   const { data: carData, error: carError } = await supabase
     .from("cars")
-    .update({
-      image_url: validatedFields.data.image_url,
-    })
-    .eq("id", validatedFields.data.id)
     .select("*")
+    .eq("id", validatedFields.data.car_id)
     .single();
 
   if (carError) {
@@ -88,6 +85,8 @@ export async function uploadImage(prevState: unknown, formData: FormData) {
       message: carError.message,
     };
   }
+
+
 
   revalidatePath(`/dashboard/cars/${validatedFields.data.id}`);
 

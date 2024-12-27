@@ -167,7 +167,7 @@ export type Database = {
           description: string;
           engine_type: string;
           id: number;
-          image_url: string | null;
+          image_url: string[] | null;
           make: string;
           mileage: number;
           model: string;
@@ -185,7 +185,7 @@ export type Database = {
           description: string;
           engine_type: string;
           id?: never;
-          image_url?: string | null;
+          image_url?: string[] | null;
           make: string;
           mileage: number;
           model: string;
@@ -203,7 +203,7 @@ export type Database = {
           description?: string;
           engine_type?: string;
           id?: never;
-          image_url?: string | null;
+          image_url?: string[] | null;
           make?: string;
           mileage?: number;
           model?: string;
