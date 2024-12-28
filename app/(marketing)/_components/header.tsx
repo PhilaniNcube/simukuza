@@ -2,14 +2,15 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
+import { Menu,  X } from "lucide-react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { User } from "@supabase/supabase-js";
 import { Button } from "@/components/ui/button";
 import { logout } from "@/actions/logout";
+import DesktopMenu from "./desktop-menu";
 
-export default function Header({user}:{user:User | null}) {
+export default function Header({ user }: { user: User | null }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -58,43 +59,7 @@ export default function Header({user}:{user:User | null}) {
           />
         </Link>
         <nav className="hidden md:block">
-          <ul className="flex space-x-4 items-center">
-            <li>
-              <Link href="/" className="hover:text-blue-600">
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link href="/cars" className="hover:text-blue-600">
-                Cars
-              </Link>
-            </li>
-            <li>
-              <Link href="/contact" className="hover:text-blue-600">
-                Contact
-              </Link>
-            </li>
-            {user ? (
-              <>
-                <li>
-                  <form action={logout}>
-                    <Button
-                      variant="outline"
-                      className="border-accent bg-transparent hover:text-white"
-                    >
-                      Logout
-                    </Button>
-                  </form>
-                </li>
-              </>
-            ) : (
-              <li>
-                <Link href="/login" className="hover:text-blue-600">
-                  Login
-                </Link>
-              </li>
-            )}
-          </ul>
+          <DesktopMenu user={user} />
         </nav>
         <button
           className="md:hidden"
@@ -141,10 +106,7 @@ export default function Header({user}:{user:User | null}) {
                 </>
               ) : (
                 <li>
-                  <Link
-                    href="/login"
-                    className="block py-2 "
-                  >
+                  <Link href="/login" className="block py-2 ">
                     <Button
                       variant="outline"
                       className="border-accent bg-transparent hover:text-white"
