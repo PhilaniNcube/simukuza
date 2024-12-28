@@ -25,70 +25,38 @@ const DesktopMenu = ({user}:{user:User|null}) => {
       <NavigationMenuList>
         <NavigationMenuItem className="bg-black">
           <NavigationMenuTrigger className="bg-black hover:bg-white text-white hover:text-black">
-            Simukuza
+            Buy A Car
           </NavigationMenuTrigger>
           <NavigationMenuContent className="">
             <div className="px-6 py-4 min-w-[400px] flex flex-col space-y-2">
-              <NavigationMenuLink asChild>
-                <Link href="/about-us">About Us</Link>
-              </NavigationMenuLink>
-              <NavigationMenuLink asChild>
-                <Link href="/contact-us">Contact Us</Link>
-              </NavigationMenuLink>
-              <NavigationMenuLink asChild>
-                <Link href="/work-with-us">Work With Us</Link>
-              </NavigationMenuLink>
-              <NavigationMenuLink asChild>
-                <Link href="/feedback">Feedback</Link>
-              </NavigationMenuLink>
-              <NavigationMenuLink asChild>
-                <Link href="/faq">FAQs</Link>
-              </NavigationMenuLink>
-            </div>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-        <NavigationMenuItem className="bg-black">
-          <NavigationMenuTrigger className="bg-black hover:bg-white text-white hover:text-black">
-            Dealers
-          </NavigationMenuTrigger>
-          <NavigationMenuContent className="">
-            <div className="px-6 py-4 min-w-[400px] flex flex-col space-y-2">
-              <NavigationMenuLink asChild>
-                <Link href="/dealers/offers">Offers</Link>
-              </NavigationMenuLink>
-              <NavigationMenuLink asChild>
-                <Link href="/dealers/manage">Manage</Link>
-              </NavigationMenuLink>
-            </div>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-        <NavigationMenuItem className="bg-black">
-          <NavigationMenuTrigger className="bg-black hover:bg-white text-white hover:text-black">
-            Vehicles
-          </NavigationMenuTrigger>
-          <NavigationMenuContent className="">
-            <div className="px-6 py-4 min-w-[400px] flex flex-col space-y-2">
-              <NavigationMenuLink asChild>
-                <Link href="/cars">Cars</Link>
-              </NavigationMenuLink>
               <NavigationMenuLink asChild>
                 <Link href="/cars/new">New Cars</Link>
-              </NavigationMenuLink>
-              <NavigationMenuLink asChild>
-                <Link href="/cars/recent_import">Recent Imports</Link>
               </NavigationMenuLink>
               <NavigationMenuLink asChild>
                 <Link href="/cars/used">Used Cars</Link>
               </NavigationMenuLink>
               <NavigationMenuLink asChild>
-                <Link href="/cars/commercial">Commercial</Link>
+                <Link href="/cars/recent_imports">Recent Imports</Link>
               </NavigationMenuLink>
-              <NavigationMenuLink asChild>
-                <Link href="/cars/special_purpose">Special Purpose</Link>
-              </NavigationMenuLink>
+
+
             </div>
           </NavigationMenuContent>
         </NavigationMenuItem>
+        <NavigationMenuItem className="bg-black">
+          <NavigationMenuTrigger className="bg-black hover:bg-white text-white hover:text-black">
+            Car Specials
+          </NavigationMenuTrigger>
+          <NavigationMenuContent className="">
+            <div className="px-6 py-4 min-w-[400px] flex flex-col space-y-2">
+              <NavigationMenuLink asChild>
+                <Link href="/cars/commercial">Commercial Cars</Link>
+              </NavigationMenuLink>
+
+            </div>
+          </NavigationMenuContent>
+        </NavigationMenuItem>
+
         <NavigationMenuItem className="bg-black">
           <NavigationMenuTrigger className="bg-black hover:bg-white text-white hover:text-black">
             Services
