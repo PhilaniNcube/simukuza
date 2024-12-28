@@ -65,6 +65,7 @@ export default async function HomepageHero() {
                         className="peer pe-9 ps-9 rounded-full shadow-lg h-12 placeholder:text-white md:placeholder:text-slate-400"
                         placeholder="try 'Toyota Aqua'"
                         type="search"
+                        name="search_term"
                       />
                       <div className="pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-3 text-muted-foreground/80 peer-disabled:opacity-50 ">
                         <Search
@@ -76,7 +77,7 @@ export default async function HomepageHero() {
                     </div>
                   </div>
                   <div className="grid grid-cols-2 gap-3 mt-5">
-                    <Select>
+                    <Select name="make">
                       <SelectTrigger className="w-full">
                         <SelectValue placeholder="Select a make" />
                       </SelectTrigger>
@@ -91,29 +92,23 @@ export default async function HomepageHero() {
                         </SelectGroup>
                       </SelectContent>
                     </Select>
-                    <Select>
+                    <Select name="condition">
                       <SelectTrigger className="w-full">
-                        <SelectValue placeholder="Select a city" className="" />
+                        <SelectValue placeholder="Select condition" className="" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectGroup>
-                          <SelectLabel>City</SelectLabel>
-                          <SelectItem value="Harare">Harare</SelectItem>
-                          <SelectItem value="Bulawayo">Bulawayo</SelectItem>
-                          <SelectItem value="Mutare">Mutare</SelectItem>
-                          <SelectItem value="Gweru">Gweru</SelectItem>
-                          <SelectItem value="Masvingo">Masvingo</SelectItem>
-                          <SelectItem value="Kwekwe">Kwekwe</SelectItem>
-                          <SelectItem value="Chitungwiza">
-                            Chitungwiza
-                          </SelectItem>
+                        <SelectGroup >
+                          <SelectLabel>Condition</SelectLabel>
+                          <SelectItem value="new">New</SelectItem>
+                          <SelectItem value="used">Used</SelectItem>
+                          <SelectItem value="recent_import">Recent Import</SelectItem>
                         </SelectGroup>
                       </SelectContent>
                     </Select>
                   </div>
                   <Separator className="my-5" />
                   <div className="mt-5">
-                    <RadioGroup className="flex items-start justify-start gap-x-5">
+                    <RadioGroup name="price" className="flex items-start justify-start gap-x-5">
                       <div className="flex items-center space-x-2">
                         <RadioGroupItem value="price" id="price" className="" />
                         <Label htmlFor="price">Price</Label>

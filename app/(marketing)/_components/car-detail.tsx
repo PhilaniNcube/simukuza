@@ -9,9 +9,9 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Database } from "@/utils/schema";
 import { formatDistance, formatToUsd } from "@/lib/utils";
+import { Clock10, CogIcon, FuelIcon } from "lucide-react";
 
 interface CarDetailsProps {
   car: Database["public"]["Tables"]["cars"]["Row"];
@@ -25,7 +25,7 @@ export default function CarDetails({
   features,
 }: CarDetailsProps) {
   return (
-    <Card className="w-full max-w-6xl mx-auto">
+    <Card className="w-full max-w-7xl mx-auto mt-7">
       <CardContent className="p-6">
         <div className="grid md:grid-cols-2 gap-6">
           {/* Left column: Image carousel */}
@@ -54,14 +54,13 @@ export default function CarDetails({
           {/* Right column: Car details */}
           <div className="space-y-6">
             <div>
-              <h2 className="text-3xl font-bold">
+              <h1 className="text-3xl font-bold">
                 {car.year} {car.make} {car.model}
-              </h2>
-              <Badge variant="secondary" className="text-lg px-3 py-1 mt-2">
-                {formatToUsd(car.price)}
-              </Badge>
+              </h1>
             </div>
-
+            <h2 className="text-2xl md:text-4xl italic px-3 py-1 mt-2 text-accent font-extrabold">
+              USD {formatToUsd(car.price)}
+            </h2>
             <div>
               <h3 className="text-xl font-semibold mb-2">Description</h3>
               <p className="text-gray-600 dark:text-gray-300">
@@ -69,8 +68,18 @@ export default function CarDetails({
               </p>
               <div className="w-full flex justify-between items-center mt-4 gap-3">
                 <div>
-                  <span className="text-gray-500 text-sm dark:text-gray-300">
-                    Mileage: {formatDistance(car.mileage!)}
+                  <span className="text-accent text-sm  flex">
+                    <Clock10 />: {formatDistance(car.mileage!)}
+                  </span>
+                </div>
+                <div>
+                  <span className="text-accent text-sm  capitalize flex">
+                    <CogIcon />: {car.transmission}
+                  </span>
+                </div>
+                <div>
+                  <span className="text-accent text-sm  capitalize flex">
+                    <FuelIcon />: {car.engine_type}
                   </span>
                 </div>
               </div>
