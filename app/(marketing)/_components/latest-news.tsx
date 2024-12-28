@@ -48,18 +48,25 @@ const LatestNews = () => {
   return (
     <div className="py-6">
       <div className="max-w-7xl mx-auto px-4">
-        <div className="flex justify-end">
-          <h2 className="text-3xl text-slate-500 font-extralight text-balance leading-4 text-center mb-12">
-            Latest{" "}
-            <span className="italic text-accent font-extrabold">
-              News &amp; Reviews
-            </span>
-          </h2>
+        <div className="flex justify-start mb-4">
+          <div className=" rounded-l-full rounded-tr-full bg-accent w-fit p-2 pr-5 font-extrabold text-white shrink-0 border-b-[1px] border-b-accent">
+            <h2 className="text-balance leading-4 text-center uppercase">
+              Featured Articles
+            </h2>
+          </div>
+          <div className="flex relative bg-white w-full  border-b-[1px] border-b-accent ">
+            <div className="flex w-full justify-end">
+              <h2 className="text-3xl text-slate-500 font-extralight text-balance">
+                Latest{" "}
+                <span className="italic text-accent font-extrabold">
+                  News &amp; Reviews
+                </span>
+              </h2>
+            </div>
+          </div>
         </div>
 
-        <div className="flex justify-between items-center">
-          <hr className="text-accent bg-accent w-full h-1" />
-        </div>
+
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:grid-rows-2 mt-2 gap-6">
           <div className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 row-span-2 col-span-2 @container">
