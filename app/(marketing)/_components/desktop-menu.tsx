@@ -22,7 +22,7 @@ import { User2, UserX } from "lucide-react";
 const DesktopMenu = ({user}:{user:User|null}) => {
   return (
     <NavigationMenu>
-      <NavigationMenuList>
+      <NavigationMenuList className="flex items-center space-x-4">
         <NavigationMenuItem className="bg-black">
           <NavigationMenuTrigger className="bg-black hover:bg-white text-white hover:text-black">
             Buy A Car
@@ -38,8 +38,6 @@ const DesktopMenu = ({user}:{user:User|null}) => {
               <NavigationMenuLink asChild>
                 <Link href="/cars/recent_imports">Recent Imports</Link>
               </NavigationMenuLink>
-
-
             </div>
           </NavigationMenuContent>
         </NavigationMenuItem>
@@ -52,11 +50,9 @@ const DesktopMenu = ({user}:{user:User|null}) => {
               <NavigationMenuLink asChild>
                 <Link href="/cars/commercial">Commercial Cars</Link>
               </NavigationMenuLink>
-
             </div>
           </NavigationMenuContent>
         </NavigationMenuItem>
-
         <NavigationMenuItem className="bg-black">
           <NavigationMenuTrigger className="bg-black hover:bg-white text-white hover:text-black">
             Services
@@ -72,17 +68,26 @@ const DesktopMenu = ({user}:{user:User|null}) => {
               <NavigationMenuLink asChild>
                 <Link href="/services/car_service">Car Service</Link>
               </NavigationMenuLink>
-              <NavigationMenuLink asChild>
-                <Link href="/services/ratings">Ratings &amp; Reviews</Link>
-              </NavigationMenuLink>
+
               <NavigationMenuLink asChild>
                 <Link href="/services/help">Help &amp; Advice</Link>
               </NavigationMenuLink>
             </div>
           </NavigationMenuContent>
         </NavigationMenuItem>
+        <NavigationMenuItem className="bg-black ">
+          <NavigationMenuLink asChild>
+            <Link href="/customers/sell_my_car">Sell My Car</Link>
+          </NavigationMenuLink>
+        </NavigationMenuItem>
+        <NavigationMenuItem className="bg-black ">
+          <NavigationMenuLink asChild>
+            <Link href="/services/ratings">News &amp; Reviews</Link>
+          </NavigationMenuLink>
+        </NavigationMenuItem>
+
         {user ? (
-          <NavigationMenuItem>
+          <NavigationMenuItem className="ml-4">
             <form action={logout}>
               <Button
                 type="submit"
@@ -96,12 +101,13 @@ const DesktopMenu = ({user}:{user:User|null}) => {
         ) : (
           <NavigationMenuItem>
             <Link href="/login" legacyBehavior passHref>
-
-                <Button className="bg-transparent text-accent border-accent hover:text-white hover:border-white" variant="outline" >
-                  Login
-                  <User2 className="inline-block ml-2" />
-                </Button>
-
+              <Button
+                className="bg-transparent text-accent border-accent hover:text-white hover:border-white font-light"
+                variant="outline"
+              >
+                Login
+                <User2 className="inline-block ml-2" />
+              </Button>
             </Link>
           </NavigationMenuItem>
         )}
