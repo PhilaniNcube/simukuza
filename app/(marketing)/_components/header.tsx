@@ -54,7 +54,7 @@ export default function Header({ user }: { user: User | null }) {
             height={50}
             className={cn(
               "object-cover transition-all duration-300 ease-in-out",
-              isScrolled ? "w-52" : "w-56"
+              isScrolled ? "w-64" : "w-[280px]"
             )}
           />
         </Link>
@@ -74,19 +74,19 @@ export default function Header({ user }: { user: User | null }) {
           <nav className="container mx-auto px-4 py-2 text-black">
             <ul onClick={toggleMobileMenu} className="space-y-2">
               <li>
-                <Link href="/" className="block py-2 hover:text-blue-600">
+                <Link href="/" className="block py-2 hover:text-lightblue">
                   Home
                 </Link>
               </li>
               <li>
-                <Link href="/cars" className="block py-2 hover:text-blue-600">
+                <Link href="/cars" className="block py-2 hover:text-lightblue">
                   Cars
                 </Link>
               </li>
               <li>
                 <Link
                   href="/contact"
-                  className="block py-2 hover:text-blue-600"
+                  className="block py-2 hover:text-lightblue"
                 >
                   Contact
                 </Link>

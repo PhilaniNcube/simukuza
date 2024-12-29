@@ -19,7 +19,7 @@ type CarCardProps = {
 const CarCard = ({ car, carImages }: CarCardProps) => {
   return (
     <Link href={`/cars/${car.id}`}>
-      <Card className="shadow-lg overflow-hidden rounded-2xl">
+      <Card className="shadow-lg overflow-hidden rounded-2xl w-full">
         <CardHeader className="p-0 ">
           <div className="aspect-video relative">
             <Image
@@ -38,11 +38,11 @@ const CarCard = ({ car, carImages }: CarCardProps) => {
               {car.make} {car.model}
             </span>
           </h2>
-          <p className="text-xl md:text-3xl my-1 text-accent font-extrabold italic">
+          <p className="text-xl md:text-2xl text-accent font-extrabold italic">
             USD {formatToUsd(car.price)}
           </p>
           {/* list the features */}
-          <div className="flex text-accent justify-between flex-wrap text-xs">
+          <div className="flex text-accent justify-between flex-wrap text-xs py-6">
             <span>
               <Clock1 size={16} className="inline-block mr-1" />
               {formatDistance(car.mileage!)}{" "}

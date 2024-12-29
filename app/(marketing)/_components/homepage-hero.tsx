@@ -46,16 +46,18 @@ export default async function HomepageHero() {
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex flex-col-reverse md:flex-row justify-between items-start relative  md:h-[180px]">
             <div className="max-w-lg">
-              <h1 className="text-4xl font-thin text-slate-500">
-                The road to your{" "}
+              <h1 className="text-3xl md:text-4xl font-thin text-darkgrey">
+                The road to your <br />
                 <span className="text-accent font-extrabold italic">
                   dream car
                 </span>{" "}
-                starts here, no GPS needed
+                starts here <br />
+                <hr className="inline-block w-12 h-2 border-t border-t-darkgrey text-darkgrey" />{" "}
+                no GPS needed
               </h1>
             </div>
 
-            <Card className="w-full md:w-2/3 lg:w-1/3 shadow-xl rounded-2xl bg-accent-foreground text-white md:text-black md:bg-white md:translate-y-[-200px]">
+            <Card className="w-full md:w-2/3 lg:w-[520px] shadow-xl rounded-2xl bg-accent-foreground text-white md:text-black md:bg-white md:translate-y-[-200px]">
               <CardContent className="py-4">
                 <form>
                   <div className="space-y-2">
@@ -94,21 +96,29 @@ export default async function HomepageHero() {
                     </Select>
                     <Select name="condition">
                       <SelectTrigger className="w-full">
-                        <SelectValue placeholder="Select condition" className="" />
+                        <SelectValue
+                          placeholder="Select condition"
+                          className=""
+                        />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectGroup >
+                        <SelectGroup>
                           <SelectLabel>Condition</SelectLabel>
                           <SelectItem value="new">New</SelectItem>
                           <SelectItem value="used">Used</SelectItem>
-                          <SelectItem value="recent_import">Recent Import</SelectItem>
+                          <SelectItem value="recent_import">
+                            Recent Import
+                          </SelectItem>
                         </SelectGroup>
                       </SelectContent>
                     </Select>
                   </div>
                   <Separator className="my-5" />
                   <div className="mt-5">
-                    <RadioGroup name="price" className="flex items-start justify-start gap-x-5">
+                    <RadioGroup
+                      name="price"
+                      className="flex items-start justify-start gap-x-5"
+                    >
                       <div className="flex items-center space-x-2">
                         <RadioGroupItem value="price" id="price" className="" />
                         <Label htmlFor="price">Price</Label>

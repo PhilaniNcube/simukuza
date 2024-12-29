@@ -11,18 +11,18 @@ const AboutSimukuza = () => {
           </span>
         </h2>
       </div>
-      <div className="bg-slate-300 w-full py-8">
+      <div className="bg-lightgrey w-full py-8">
         <div className="max-w-7xl mx-auto px-4">
-          <p className="text-slate-600 text-lg md:text-xl lg:text-2xl font-light">
+          <p className="text-darkgrey text-lg md:text-xl lg:text-2xl font-light">
             With thousands of new and used makes and models to choose from,{" "}
             <span className="font-bold italic">Simukuza</span> is{" "}
             <span className="font-bold italic">Zimbabwe&apos;s</span> trusted marketplace for buying new and used cars, bakkies and SUVs. Our website makes buying and selling cars fast, intuitive and reliable.
           </p>
-          <p className="text-slate-600 text-lg md:text-xl lg:text-2xl font-light mt-5">
+          <p className="text-darkgrey text-lg md:text-xl lg:text-2xl font-light mt-5">
            Buying your ideal car has never been easier.
             <span className="font-bold italic">Simukuza</span> allows you to search and compare cars to ensure you find a carthat meets your needs and fits your budget.
           </p>
-          <Link href="/about-us" className="text-blue-500 mt-8 text-2xl">
+          <Link href="/about-us" className="text-lightblue mt-8 text-2xl">
            More about <span className="font-bold">Simukuza Auto</span>
           </Link>
         </div>

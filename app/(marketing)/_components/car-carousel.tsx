@@ -21,15 +21,13 @@ const FeaturedCarCarousel = ({data, carImages}:FeaturedCarCarouselProps) => {
 
 
   return (
-    <div className="bg-slate-50 py-12">
+    <div className="py-12">
       <div className="mx-auto max-w-7xl px-4">
-
-
-        <div className="relative">
-          <div className="overflow-hidden" ref={emblaRef}>
+        <div className="relative flex md:hidden">
+          <div className="overflow-hidden " ref={emblaRef}>
             <div className="flex gap-6">
               {data.map((car) => {
-                if (!carImages ) {
+                if (!carImages) {
                   return null;
                 }
 
@@ -67,6 +65,29 @@ const FeaturedCarCarousel = ({data, carImages}:FeaturedCarCarouselProps) => {
           >
             <ChevronRight className="h-6 w-6" />
           </Button>
+        </div>
+        <div className="hidden lg:grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {data.map((car) => {
+            if (!carImages) {
+              return null;
+            }
+
+            return (
+              <div
+                key={car.id}
+                className="flex-[0_0_80%] min-w-0 sm:flex-[0_0_55%] md:flex-[0_0_48%] lg:flex-[0_0_34%]"
+              >
+                <CarCard
+                  car={car}
+                  carImages={carImages?.filter(
+                    (image) => image.car_id === car.id
+                  )}
+                />
+              </div>
+            );
+          }
+          )}
+
         </div>
       </div>
     </div>

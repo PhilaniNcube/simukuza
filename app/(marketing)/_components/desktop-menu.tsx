@@ -17,7 +17,7 @@ import {
 import { User } from "@supabase/supabase-js";
 import { Button } from "@/components/ui/button";
 import { logout } from "@/actions/logout";
-import { User2, UserX } from "lucide-react";
+import { User2, UserCircle, UserX } from "lucide-react";
 
 const DesktopMenu = ({user}:{user:User|null}) => {
   return (
@@ -91,7 +91,8 @@ const DesktopMenu = ({user}:{user:User|null}) => {
             <form action={logout}>
               <Button
                 type="submit"
-                className="w-full text-left px-6 py-4 hover:bg-white hover:text-black"
+                variant="outline"
+                className="w-full text-white border-white text-left px-6 py-4  hover:bg-white hover:text-black"
               >
                 Logout
                 <UserX className="inline-block ml-2" />
@@ -102,11 +103,11 @@ const DesktopMenu = ({user}:{user:User|null}) => {
           <NavigationMenuItem>
             <Link href="/login" legacyBehavior passHref>
               <Button
-                className="bg-transparent text-accent border-accent hover:text-white hover:border-white font-light"
+                className="bg-transparent text-white border-white hover:text-white hover:border-white font-light"
                 variant="outline"
               >
                 Login
-                <User2 className="inline-block ml-2" />
+                <UserCircle className="inline-block ml-2" />
               </Button>
             </Link>
           </NavigationMenuItem>
