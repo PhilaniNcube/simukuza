@@ -139,6 +139,41 @@ const Footer = () => {
                 </li>
               </ul>
             </div>
+            <div>
+              <h4 className="text-white text-xl font-bold">Customers</h4>
+              <ul>
+                <li>
+                  <Link href="/customers/trade_in" className="text-white">
+                    Trade In
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/customers/sell_my_car" className="text-white">
+                    Sell My Car
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/customers/safety" className="text-white">
+                    Safety & Security
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/customers/terms" className="text-white">
+                    Terms & Conditions
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/customers/policy" className="text-white">
+                    Privacy Policy
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/customers/code" className="text-white">
+                    Code of Advertising
+                  </Link>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>
