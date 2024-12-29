@@ -78,6 +78,7 @@ const LatestNews = () => {
                 alt={newsItems[0].title}
                 className="object-cover w-full rounded-lg @md:aspect-video"
               />
+
             </div>
             <div className="@md:p-6 hidden @md:block">
               <h3 className="text-xl font-semibold mb-2">
