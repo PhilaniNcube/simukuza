@@ -1,8 +1,15 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Separator } from "@/components/ui/separator";
+import { FaXTwitter, FaInstagram, FaTiktok, FaYoutube } from "react-icons/fa6";
+import { FaFacebook } from "react-icons/fa";
 import Link from "next/link";
+import Image from "next/image";
 
 const Footer = () => {
+
+  const year = new Date().getFullYear();
+
   return (
     <footer className="">
       <section className="bg-blue-950 text-white">
@@ -38,9 +45,11 @@ const Footer = () => {
       </section>
       <section className="bg-accent py-10">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 font-light">
+          <div className="flex justify-between items-start flex-col md:flex-row flex-wrap gap-4 font-light">
             <div>
-              <h4 className="text-white text-xl font-bold">Simukuza Auto</h4>
+              <h4 className="text-white text-xl font-bold italic">
+                Simukuza Auto
+              </h4>
               <ul>
                 <li>
                   <Link href="/about-us" className="text-white">
@@ -70,22 +79,7 @@ const Footer = () => {
               </ul>
             </div>
             <div>
-              <h4 className="text-white text-xl font-bold">Dealers</h4>
-              <ul>
-                <li>
-                  <Link href="/dealers/offers" className="text-white">
-                    Offers
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/dealers/manage" className="text-white">
-                    Manage
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-white text-xl font-bold">Vehicles</h4>
+              <h4 className="text-white text-xl font-bold italic">Vehicles</h4>
               <ul>
                 <li>
                   <Link href="/cars/new" className="text-white">
@@ -110,37 +104,7 @@ const Footer = () => {
               </ul>
             </div>
             <div>
-              <h4 className="text-white text-xl font-bold">Services</h4>
-              <ul>
-                <li>
-                  <Link href="/services/car_finance" className="text-white">
-                    Car Finance
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/services/car_insurance" className="text-white">
-                    Car Insurance
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/services/car_service" className="text-white">
-                    Car Service
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/services/ratings" className="text-white">
-                    Ratings & Reviews
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/services/help" className="text-white">
-                    Help & Avice
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-white text-xl font-bold">Customers</h4>
+              <h4 className="text-white text-xl font-bold italic">Customers</h4>
               <ul>
                 <li>
                   <Link href="/customers/trade_in" className="text-white">
@@ -174,6 +138,90 @@ const Footer = () => {
                 </li>
               </ul>
             </div>
+
+            <div>
+              <h4 className="text-white text-xl font-bold italic">Services</h4>
+              <ul>
+                <li>
+                  <Link href="/services/car_finance" className="text-white">
+                    Car Finance
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/services/car_insurance" className="text-white">
+                    Car Insurance
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/services/car_service" className="text-white">
+                    Car Service
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/services/ratings" className="text-white">
+                    Ratings & Reviews
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/services/help" className="text-white">
+                    Help & Avice
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-white text-xl font-bold italic">Dealers</h4>
+              <ul>
+                <li>
+                  <Link href="/dealers/offers" className="text-white">
+                    Offers
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/dealers/manage" className="text-white">
+                    Manage
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <Separator className="border-t border-white my-8" />
+          <div className="flex justify-center text-center">
+            <h4 className="text-white text-xl italic flex items-center">
+              Join&nbsp;<span className="font-bold">Our Tribe</span>&nbsp;on all
+              socials
+              <span>
+                <FaFacebook className="ml-2" />
+              </span>
+              <span>
+                <FaXTwitter className="ml-2" />
+              </span>
+              <span>
+                <FaInstagram className="ml-2" />
+              </span>
+              <span>
+                <FaTiktok className="ml-2" />
+              </span>
+              <span>
+                <FaYoutube className="ml-2" />
+              </span>
+            </h4>
+          </div>
+          <div className="flex flex-col md:flex-row justify-center items-center gap-6 max-w-7xl mx-auto px-4">
+            <Image
+              src="/images/logo_white.svg"
+              alt="Simukuza Auto Logo"
+              width={200}
+              height={50}
+              className="w-64 lg:w-[400px] object-cover"
+            />
+            <p className="text-lg text-white shrink-0">
+              A Division of{" "}
+              <span className="font-bold">Simukuza Enterprises (PVT) LTD</span>{" "}
+              &copy; {year}
+            </p>
+
+            <Separator className="max-w-md " />
           </div>
         </div>
       </section>
