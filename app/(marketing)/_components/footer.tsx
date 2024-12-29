@@ -186,26 +186,30 @@ const Footer = () => {
             </div>
           </div>
           <Separator className="border-t border-white my-8" />
-          <div className="flex justify-center text-center">
-            <h4 className="text-white text-xl italic flex items-center">
-              Join&nbsp;<span className="font-bold">Our Tribe</span>&nbsp;on all
-              socials
-              <span>
-                <FaFacebook className="ml-2" />
-              </span>
-              <span>
-                <FaXTwitter className="ml-2" />
-              </span>
-              <span>
-                <FaInstagram className="ml-2" />
-              </span>
-              <span>
-                <FaTiktok className="ml-2" />
-              </span>
-              <span>
-                <FaYoutube className="ml-2" />
-              </span>
-            </h4>
+          <div className="flex flex-col md:flex-row justify-center text-center">
+            <div className="text-white text-xl italic flex flex-col md:flex-row items-center">
+              <p>
+                Join&nbsp;<span className="font-bold">Our Tribe</span>&nbsp;on
+                all socials
+              </p>
+              <div className="flex flex-row gap-4 items-center">
+                <span>
+                  <FaFacebook className="ml-2" />
+                </span>
+                <span>
+                  <FaXTwitter className="ml-2" />
+                </span>
+                <span>
+                  <FaInstagram className="ml-2" />
+                </span>
+                <span>
+                  <FaTiktok className="ml-2" />
+                </span>
+                <span>
+                  <FaYoutube className="ml-2" />
+                </span>
+              </div>
+            </div>
           </div>
           <div className="flex flex-col md:flex-row justify-center items-center gap-6 max-w-7xl mx-auto px-4">
             <Image
