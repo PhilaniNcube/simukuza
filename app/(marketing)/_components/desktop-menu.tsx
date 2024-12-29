@@ -17,7 +17,7 @@ import {
 import { User } from "@supabase/supabase-js";
 import { Button } from "@/components/ui/button";
 import { logout } from "@/actions/logout";
-import { User2, UserCircle, UserX } from "lucide-react";
+import {  UserCircle, UserX } from "lucide-react";
 
 const DesktopMenu = ({user}:{user:User|null}) => {
   return (
