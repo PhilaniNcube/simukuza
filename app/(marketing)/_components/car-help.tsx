@@ -1,13 +1,14 @@
 import Image from "next/image";
-import {formatDistance} from "date-fns";
+import { formatDistance } from "date-fns";
 import { Separator } from "@/components/ui/separator";
 import Link from "next/link";
 
-const LatestNews = () => {
+const CarHelp = () => {
   const newsItems = [
     {
       title: "2024 BMW M3 Review",
-      description: "The ultimate driving machine gets even better. Our review of the 2024 BMW M3 is here. Read more to find out what we think of the new M3. Is it worth the hype? ",
+      description:
+        "The ultimate driving machine gets even better. Our review of the 2024 BMW M3 is here. Read more to find out what we think of the new M3. Is it worth the hype? ",
       category: "Review",
       image:
         "https://utfs.io/f/84aXfFFbF7G0eYpLkwPHJs6Viruw31flNKASm9MZDTnFEYat",
@@ -33,40 +34,46 @@ const LatestNews = () => {
       author: "Mike Brown",
     },
 
-    // {
-    //   title: "Maintenance Tips for Your Car",
-    //   description: "Essential tips to keep your car running smoothly",
-    //   category: "Guide",
-    //   image:
-    //     "https://utfs.io/f/84aXfFFbF7G0YB2EBmcwb8A9K4a1cBH3RpVEvzWFMmyPkSOD",
-    //   date: "November 3, 2024",
-    //   author: "Tom Davis",
-    // },
-
+    {
+      title: "Maintenance Tips for Your Car",
+      description: "Essential tips to keep your car running smoothly",
+      category: "Guide",
+      image:
+        "https://utfs.io/f/84aXfFFbF7G0YB2EBmcwb8A9K4a1cBH3RpVEvzWFMmyPkSOD",
+      date: "November 3, 2024",
+      author: "Tom Davis",
+    },
+    {
+      title: "How to Change Your Car's Oil",
+      description: "A step-by-step guide to changing your car's oil. You should change the car's oil regularly to keep it running smoothly.",
+      category: "Guide",
+      image:
+        "https://utfs.io/f/84aXfFFbF7G0YB2EBmcwb8A9K4a1cBH3RpVEvzWFMmyPkSOD",
+      date: "December 18, 2024",
+      author: "Lwazi Ncube"
+    }
   ];
 
   return (
     <div className="py-6">
       <div className="max-w-7xl mx-auto px-4">
-        <div className="flex justify-start mb-4">
-          <div className=" rounded-l-full rounded-tr-full bg-accent w-fit p-2 pr-5 font-extrabold text-white shrink-0 border-b-[1px] border-b-accent">
+        <div className="flex flex-row-reverse justify-start mb-4">
+          <div className=" rounded-r-full rounded-tl-full bg-accent w-fit p-2 pr-5 font-extrabold text-white shrink-0 border-b-[1px] border-b-accent">
             <h2 className="text-balance leading-4 text-center uppercase">
               Featured Articles
             </h2>
           </div>
           <div className="flex relative bg-white w-full  border-b-[1px] border-b-accent ">
-            <div className="flex w-full justify-end">
+            <div className="flex w-full justify-start">
               <h2 className="text-3xl text-slate-500 font-extralight text-balance">
-                Latest{" "}
+                Car{" "}
                 <span className="italic text-accent font-extrabold">
-                  News &amp; Reviews
+                  Help &amp; Advice
                 </span>
               </h2>
             </div>
           </div>
         </div>
-
-
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:grid-rows-2 mt-2 gap-6">
           <div className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 row-span-2 col-span-2 @container">
@@ -74,25 +81,25 @@ const LatestNews = () => {
               <Image
                 width={1000}
                 height={1000}
-                src={newsItems[0].image}
-                alt={newsItems[0].title}
+                src={newsItems[4].image}
+                alt={newsItems[4].title}
                 className="object-cover w-full rounded-lg @md:aspect-video"
               />
             </div>
             <div className="@md:p-6 hidden @md:block">
               <h3 className="text-xl font-semibold mb-2">
-                {newsItems[0].title}
+                {newsItems[4].title}
               </h3>
               <p className="text-gray-600 font-medium text-lg mb-4">
-                {newsItems[0].description}
+                {newsItems[4].description}
               </p>
               <div className="flex items-center justify-between text-sm text-accent">
                 <p className="font-medium ">
                   <span className="text-accent">
-                    {formatDistance(new Date(newsItems[0].date), new Date())}{" "}
+                    {formatDistance(new Date(newsItems[4].date), new Date())}{" "}
                     ago
                   </span>{" "}
-                  | <span className="">{newsItems[0].author}</span>{" "}
+                  | <span className="">{newsItems[4].author}</span>{" "}
                 </p>
               </div>
             </div>
@@ -147,4 +154,4 @@ const LatestNews = () => {
   );
 };
 
-export default LatestNews;
+export default CarHelp;

@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 import Header from "./_components/header";
 import { createClient } from "@/utils/supabase/server";
+import Footer from "./_components/footer";
 
 
 
@@ -15,7 +16,7 @@ const MarketingLayout = async ({ children }: { children: ReactNode }) => {
     <section>
       <Header user={user}/>
       {children}
-
+     <Footer />
     </section>
   );
 };
