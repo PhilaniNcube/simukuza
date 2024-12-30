@@ -42,7 +42,7 @@ const CarCard = ({ car, carImages }: CarCardProps) => {
             USD {formatToUsd(car.price)}
           </p>
           {/* list the features */}
-          <div className="flex text-accent justify-between flex-wrap text-xs py-6">
+          <div className="flex text-accent justify-between flex-wrap text-xs py-5">
             <span>
               <Clock1 size={16} className="inline-block mr-1" />
               {formatDistance(car.mileage!)}{" "}

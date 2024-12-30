@@ -59,7 +59,7 @@ const CarHelp = () => {
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex flex-row-reverse justify-start mb-4">
           <div className=" rounded-r-full rounded-tl-full bg-accent w-fit p-2 pr-5 font-extrabold text-white shrink-0 border-b-[1px] border-b-accent">
-            <h2 className="text-balance leading-4 text-center uppercase text-xs md:text-md">
+            <h2 className="text-balance leading-4 text-center uppercase text-xs md:text-md lg:text-2xl">
               Featured Articles
             </h2>
           </div>

@@ -38,7 +38,7 @@ const BuyingEssentials = () => {
   return (
     <div>
       <div className="max-w-7xl mx-auto px-4 py-6">
-        <h2 className="text-3xl md:text-4xl lg:text-5xl text-slate-500 font-extralight text-balance leading-4 text-center">
+        <h2 className="text-3xl md:text-4xl mt-6 lg:text-[70px] text-slate-500 font-extralight text-balance leading-4 text-center">
           Buying{" "}
           <span className="italic text-accent font-extrabold">Essentials</span>
         </h2>

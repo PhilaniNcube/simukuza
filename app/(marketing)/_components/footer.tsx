@@ -15,7 +15,7 @@ const Footer = () => {
       <section className="bg-darkblue text-white">
         <div className="max-w-7xl mx-auto px-4 py-6">
           <div className="flex flex-col md:flex-row justify-between">
-            <p className="text-white text-2xl">
+            <p className="text-white text-3xl">
               Sign Up to our weekly{" "}
               <span className="text-lightblue italic">Newsletter</span>
             </p>
@@ -187,7 +187,7 @@ const Footer = () => {
           </div>
           <Separator className="border-t border-white my-8" />
           <div className="flex flex-col md:flex-row justify-center text-center">
-            <div className="text-white text-xl italic flex flex-col md:flex-row items-center">
+            <div className="text-white text-xl md:text-[40px] italic flex flex-col md:flex-row items-center">
               <p>
                 Join&nbsp;<span className="font-bold">Our Tribe</span>&nbsp;on
                 all socials
@@ -219,7 +219,7 @@ const Footer = () => {
               height={50}
               className="w-64 lg:w-[400px] object-cover"
             />
-            <p className="text-lg text-white shrink-0">
+            <p className="text-[20px] text-white shrink-0">
               A Division of{" "}
               <span className="font-bold">Simukuza Enterprises (PVT) LTD</span>{" "}
               &copy; {year}

@@ -3,7 +3,6 @@
 import * as React from "react";
 import Link from "next/link";
 
-
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -11,8 +10,6 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-
-
 } from "@/components/ui/navigation-menu";
 import { User } from "@supabase/supabase-js";
 import { Button } from "@/components/ui/button";
