@@ -46,7 +46,7 @@ export default async function HomepageHero() {
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex flex-col-reverse md:flex-row justify-between items-start relative  md:h-[180px]">
             <div className="max-w-lg">
-              <h1 className="text-3xl md:text-4xl font-thin text-darkgrey">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-thin text-darkgrey">
                 The road to your <br />
                 <span className="text-accent font-extrabold italic">
                   dream car
