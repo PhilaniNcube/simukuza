@@ -24,6 +24,22 @@ export async function getCar(id:number) {
   return data[0];
 }
 
+export async function getCarWithImages(id:number) {
+
+  const supabase = await createClient();
+
+  const car = await supabase.rpc("get_car_details", {p_car_id: id});
+
+  console.log("Car",car.data);
+  if (!car.data || car.error) {
+    return null;
+  }
+
+
+  return car.data[0];
+
+}
+
 
 export async function getCarImages(carId:number) {
   const supabase = await createClient();

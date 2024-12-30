@@ -179,8 +179,8 @@ export type Database = {
           year: number;
         };
         Insert: {
-          capacity: number ;
-          condition: string ;
+          capacity: number;
+          condition: string;
           created_at?: string;
           description: string;
           engine_type: string;
@@ -303,7 +303,54 @@ export type Database = {
       [_ in never]: never;
     };
     Functions: {
-      [_ in never]: never;
+      get_car_details: {
+        Args: {
+          p_car_id: number;
+        };
+        Returns: {
+          car_id: number;
+          user_id: string;
+          make: string;
+          model: string;
+          year: number;
+          price: number;
+          mileage: number;
+          description: string;
+          sold: boolean;
+          condition: string;
+          capacity: number;
+          transmission: string;
+          engine_type: string;
+          images: string[];
+          features: string[];
+        }[];
+      };
+      search_cars: {
+        Args: {
+          p_min_price: number;
+          p_max_price: number;
+          p_min_mileage: number;
+          p_max_mileage: number;
+          p_make: string;
+          p_model: string;
+          p_min_year: number;
+          p_max_year: number;
+        };
+        Returns: {
+          id: number;
+          user_id: string;
+          make: string;
+          model: string;
+          year: number;
+          price: number;
+          mileage: number;
+          description: string;
+          image_url: string[];
+          sold: boolean;
+          condition: string;
+          capacity: number;
+        }[];
+      };
     };
     Enums: {
       [_ in never]: never;

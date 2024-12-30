@@ -14,15 +14,11 @@ import { formatDistance, formatToUsd } from "@/lib/utils";
 import { Clock10, CogIcon, FuelIcon } from "lucide-react";
 
 interface CarDetailsProps {
-  car: Database["public"]["Tables"]["cars"]["Row"];
-  car_images: string[];
-  features: Database["public"]["Tables"]["car_features"]["Row"][];
+  car: Database["public"]['Functions']['get_car_details']['Returns'][0];
 }
 
 export default function CarDetails({
   car,
-  car_images,
-  features,
 }: CarDetailsProps) {
   return (
     <Card className="w-full max-w-7xl mx-auto mt-7">
@@ -32,7 +28,7 @@ export default function CarDetails({
           <div>
             <Carousel className="w-full">
               <CarouselContent>
-                {car_images.map((item, index) => (
+                {car.images.map((item, index) => (
                   <CarouselItem key={item}>
                     <div className="aspect-video relative">
                       <Image
@@ -88,8 +84,8 @@ export default function CarDetails({
             <div>
               <h3 className="text-xl font-semibold mb-2">Features</h3>
               <ul className="list-disc pl-5 text-gray-600 dark:text-gray-300">
-                {features.map((item) => (
-                  <li key={item.id}>{item.feature}</li>
+                {car.features.map((item) => (
+                  <li key={item}>{item}</li>
                 ))}
               </ul>
             </div>
