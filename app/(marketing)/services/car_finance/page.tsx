@@ -1,4 +1,8 @@
+import CarFinanceHero from "./_components/car-finance-hero";
+
 const CarFiance = () => {
-  return <div>CarFiance</div>;
+  return <div>
+    <CarFinanceHero />
+  </div>;
 };
 export default CarFiance;

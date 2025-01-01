@@ -1,4 +1,8 @@
+import CarInsuranceHero from "./_components/car-insurance-hero";
+
 const CarInsurance = () => {
-  return <div>CarInsurance</div>;
+  return <div>
+    <CarInsuranceHero />
+  </div>;
 };
 export default CarInsurance;

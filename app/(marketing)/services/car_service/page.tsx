@@ -1,4 +1,8 @@
+import CarServiceHero from "./_components/car-service-hero";
+
 const CarService = () => {
-  return <div>CarService</div>;
+  return <div>
+    <CarServiceHero />
+  </div>;
 };
 export default CarService;
