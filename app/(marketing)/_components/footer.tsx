@@ -92,7 +92,7 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/cars/recent_imports" className="text-white">
+                  <Link href="/cars/recent_import" className="text-white">
                     Recent Imports
                   </Link>
                 </li>

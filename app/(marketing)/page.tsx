@@ -1,4 +1,4 @@
-import { getCarWithImages } from "@/lib/fetchers/cars";
+
 import AboutSimukuza from "./_components/about-simukuza";
 import BuyingEssentials from "./_components/buying-essentials";
 import CarHelp from "./_components/car-help";
@@ -7,11 +7,9 @@ import FeaturedCars from "./_components/featured-cars";
 import HomepageHero from "./_components/homepage-hero";
 import LatestNews from "./_components/latest-news";
 
-export default async function Home() {
+export default function Home() {
 
-    const fullData = await getCarWithImages(1);
 
-    console.log(fullData);
 
   return (
     <div>

@@ -106,3 +106,6 @@ export const updateCarFeatureSchema = z.object({
 });
 
 export type UpdateCarFeatureFormValues = z.infer<typeof updateCarFeatureSchema>;
+
+
+export type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>;

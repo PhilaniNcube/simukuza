@@ -325,6 +325,24 @@ export type Database = {
           features: string[];
         }[];
       };
+      get_cars_by_condition: {
+        Args: {
+          p_condition: string;
+        };
+        Returns: {
+          car_id: number;
+          user_id: string;
+          make: string;
+          model: string;
+          year: number;
+          price: number;
+          mileage: number;
+          description: string;
+          sold: boolean;
+          condition: string;
+          images: string[];
+        }[];
+      };
       search_cars: {
         Args: {
           p_min_price: number;

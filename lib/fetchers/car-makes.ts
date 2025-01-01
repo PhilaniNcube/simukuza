@@ -3,7 +3,7 @@ import { createClient } from "@/utils/supabase/server";
 export async function getMakes() {
   const supabase = await createClient();
 
-  const { data, error } = await supabase.from("car_makes").select("*");
+  const { data, error } = await supabase.from("car_makes").select("*").order("name");
 
   if (error || !data || data.length === 0) {
     return []
