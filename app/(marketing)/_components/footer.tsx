@@ -82,22 +82,22 @@ const Footer = () => {
               <h4 className="text-white text-xl font-bold italic">Vehicles</h4>
               <ul>
                 <li>
-                  <Link href="/cars/new" className="text-white">
+                  <Link href="/cars/condition/new" className="text-white">
                     New Cars
                   </Link>
                 </li>
                 <li>
-                  <Link href="/cars/used" className="text-white">
+                  <Link href="/cars/condition/used" className="text-white">
                     Used Cars
                   </Link>
                 </li>
                 <li>
-                  <Link href="/cars/recent_import" className="text-white">
+                  <Link href="/cars/condition/recent_import" className="text-white">
                     Recent Imports
                   </Link>
                 </li>
                 <li>
-                  <Link href="/cars/commercial" className="text-white">
+                  <Link href="/cars/condition/commercial" className="text-white">
                     Commercial
                   </Link>
                 </li>

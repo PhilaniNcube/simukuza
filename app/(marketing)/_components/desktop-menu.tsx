@@ -45,7 +45,7 @@ const DesktopMenu = ({user}:{user:User|null}) => {
           <NavigationMenuContent className="">
             <div className="px-6 py-4 min-w-[400px] flex flex-col space-y-2">
               <NavigationMenuLink asChild>
-                <Link href="/cars/commercial">Commercial Cars</Link>
+                <Link href="/cars/condition/commercial">Commercial Cars</Link>
               </NavigationMenuLink>
             </div>
           </NavigationMenuContent>
