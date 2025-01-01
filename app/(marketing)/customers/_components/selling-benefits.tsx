@@ -26,6 +26,7 @@ export function SellingBenefits() {
         "Our user-friendly platform makes listing your car quick and straightforward. You can have your ad live in minutes!",
     },
     {
+      // eslint-disable-next-line jsx-a11y/alt-text
       icon: <Image className="h-6 w-6" />,
       title: "Highlight Your Car's Best Features",
       description:
