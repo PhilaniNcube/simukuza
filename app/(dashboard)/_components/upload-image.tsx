@@ -27,7 +27,7 @@ export default function ImageUpload({
 
   return (
     <div className="max-w-md mx-auto w-full mt-8 p-6 bg-white rounded-lg shadow-md">
-      <h2 className="text-2xl font-bold mb-4">Upload Image to Supabase</h2>
+      <h2 className="text-2xl font-bold mb-4">Upload Image</h2>
       <form
         action={(formData) => {
           startTransition(() => {
