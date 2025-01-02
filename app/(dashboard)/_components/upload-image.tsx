@@ -4,13 +4,14 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { AlertCircle, CircleDashed } from "lucide-react";
+import { AlertCircle, CircleDashed, XIcon } from "lucide-react";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { uploadImage } from "@/actions/upload-image";
 import { startTransition, useActionState, useOptimistic } from "react";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { deleteImage } from "@/actions/delete-image";
 
 export default function ImageUpload({
   car_id,
@@ -80,6 +81,23 @@ export default function ImageUpload({
           {optimisticImages.map((image) => {
             return (
               <div key={image} className="relative">
+                <div className="absolute top-0 right-0 bg-black bg-opacity-50 flex items-center justify-center">
+                  <div
+                    onClick={() => {
+                      // Optimistically remove the image from the list
+                      setOptimisticImages((prev) =>
+                        prev.filter((img) => img !== image)
+                      );
+                      startTransition(() => {
+                        deleteImage(car_id, image);
+                      });
+                      router.refresh();
+                    }}
+                    className="w-fit h-fit p-1 bg-red-600 text-white cursor-pointer"
+                  >
+                    <XIcon className="h-4 w-4" />
+                  </div>
+                </div>
                 <Image
                   width={500}
                   height={500}
