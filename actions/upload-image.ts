@@ -76,7 +76,7 @@ export async function uploadImage(prevState: unknown, formData: FormData) {
 
 
 
-  revalidatePath(`/dashboard/cars/${validatedFields.data.id}`);
+  revalidatePath(`/dashboard/cars/${validatedFields.data.car_id}`);
 
   return {
     status: 200,
