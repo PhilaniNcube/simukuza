@@ -54,7 +54,7 @@ export async function uploadImage(prevState: unknown, formData: FormData) {
   }
 
   // add the image to the car_images table
-  const { error: carImageError } = await supabase
+  const { error: carImageError, data:imageData } = await supabase
     .from("car_images")
     .insert([
       {
@@ -72,27 +72,15 @@ export async function uploadImage(prevState: unknown, formData: FormData) {
     };
   }
 
-  // get the car data
-  const { data: carData, error: carError } = await supabase
-    .from("cars")
-    .select("*")
-    .eq("id", validatedFields.data.car_id)
-    .single();
-
-  if (carError) {
-    return {
-      status: 500,
-      message: carError.message,
-    };
-  }
 
 
 
-  revalidatePath(`/dashboard/cars/${validatedFields.data.id}`);
+
+  revalidatePath(`/dashboard/cars/${imageData.car_id}`);
 
   return {
     status: 200,
-    image_url: carData.image_url,
     message: "Image uploaded successfully",
+    image_url: imageData.image_url,
   };
 }
