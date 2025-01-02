@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/select";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Separator } from "@/components/ui/separator";
+import { homepageFilter } from "@/actions/homepage-filter";
 
 export default async function HomepageHero() {
   const makes = await getMakes();
@@ -59,7 +60,7 @@ export default async function HomepageHero() {
 
             <Card className="w-full md:w-2/3 lg:w-[520px] shadow-xl rounded-2xl bg-accent-foreground text-white md:text-black md:bg-white md:translate-y-[-200px]">
               <CardContent className="py-4">
-                <form>
+                <form action={homepageFilter}>
                   <div className="space-y-2">
                     <div className="relative">
                       <Input
@@ -67,7 +68,7 @@ export default async function HomepageHero() {
                         className="peer pe-9 ps-9 rounded-full shadow-lg h-12 placeholder:text-white md:placeholder:text-slate-400"
                         placeholder="try 'Toyota Aqua'"
                         type="search"
-                        name="search_term"
+                        name="model"
                       />
                       <div className="pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-3 text-muted-foreground/80 peer-disabled:opacity-50 ">
                         <Search
@@ -116,7 +117,7 @@ export default async function HomepageHero() {
                   <Separator className="my-5" />
                   <div className="mt-5">
                     <RadioGroup
-                      name="price"
+                      name="oayment_plan"
                       className="flex items-start justify-start gap-x-5"
                     >
                       <div className="flex items-center space-x-2">
