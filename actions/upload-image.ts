@@ -54,7 +54,7 @@ export async function uploadImage(prevState: unknown, formData: FormData) {
   }
 
   // add the image to the car_images table
-  const { error: carImageError, data:imageData } = await supabase
+  const { error: carImageError , data:imageData} = await supabase
     .from("car_images")
     .insert([
       {
@@ -76,11 +76,11 @@ export async function uploadImage(prevState: unknown, formData: FormData) {
 
 
 
-  revalidatePath(`/dashboard/cars/${imageData.car_id}`);
+  revalidatePath(`/dashboard/cars/${validatedFields.data.id}`);
 
   return {
     status: 200,
-    message: "Image uploaded successfully",
     image_url: imageData.image_url,
+    message: "Image uploaded successfully",
   };
 }
