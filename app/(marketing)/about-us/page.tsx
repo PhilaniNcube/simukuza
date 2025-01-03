@@ -1,4 +1,10 @@
+import AboutUsHero from "./_components/about-us-hero";
+
 const AboutUsPage = () => {
-  return <div>AboutUsPage</div>;
+  return (
+    <div>
+      <AboutUsHero />
+    </div>
+  );
 };
 export default AboutUsPage;
