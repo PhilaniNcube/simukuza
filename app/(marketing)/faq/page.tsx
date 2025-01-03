@@ -1,4 +1,8 @@
+import FAQHero from "./_components/faq-hero";
+
 const FAQs = () => {
-  return <div>FAQs</div>;
+  return <div>
+    <FAQHero />
+  </div>;
 };
 export default FAQs;
