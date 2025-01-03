@@ -59,7 +59,7 @@ const NewCarsPage = async (props: { searchParams: SearchParams }) => {
   if (cars.length === 0 || !cars) {
     return (
       <div className="p-3">
-        <h1 className="text-2xl md:text-5xl font-semibold">No cars found</h1>
+        <h1 className="text-2xl md:text-5xl font-semibold">No Cars Found Matching Your Search</h1>
       </div>
     );
   }
