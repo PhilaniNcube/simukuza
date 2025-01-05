@@ -30,6 +30,10 @@ const data = {
       ],
     },
     {
+      title: "Dealership",
+      url: "/dashboard/dealership",
+    },
+    {
       title: "Cars",
       url: "/dashboard/cars",
     },

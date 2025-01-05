@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const SellMyCarContent = () => {
   return (
-    <div className="py-10">
+    <div className="pt-32">
       <div className="mx-auto @container max-w-7xl px-4">
         <div className="grid @md:grid-cols-3 gap-4">
           <div className="@md:col-span-2">
@@ -27,6 +27,9 @@ const SellMyCarContent = () => {
               dealerships. Get your vehicle seen by more interested parties and
               find the perfect buyer today!
             </p>
+            <p className="text-lg text-darkgrey font-light max-w-2xl text-balance mt-4">
+              Ready to sell your car with <span className="font-semibold">Simukuza Auto</span>? Simply fill out our online form, provide us with the necessary details, and we&apos;ll take care of the rest. Our team of experts will review your listing, ensure it meets our quality standards, and publish it on our platform for maximum visibility. With <span className="font-semibold">Simukuza Auto</span>, selling your car has never been easier!
+              </p>
           </div>
           <div className="w-full">
             <Image

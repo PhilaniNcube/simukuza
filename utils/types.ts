@@ -109,3 +109,13 @@ export type UpdateCarFeatureFormValues = z.infer<typeof updateCarFeatureSchema>;
 
 
 export type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>;
+
+
+export const newDealershipSchema = z.object({
+  name: z.string().min(1, "Name is required"),
+  email: z.string().email("Invalid email address"),
+  contact_number: z.string().optional(),
+  location: z.string().optional(),
+});
+
+export type DealershipFormData = z.infer<typeof newDealershipSchema>;

@@ -1,4 +1,10 @@
+import TradeInHero from "./_components/trade-in-hero";
+
 const TradeInPage = () => {
-  return <div>TradeInPage</div>;
+  return (
+    <div>
+      <TradeInHero />
+    </div>
+  );
 };
 export default TradeInPage;

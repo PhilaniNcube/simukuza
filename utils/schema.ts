@@ -164,6 +164,7 @@ export type Database = {
           capacity: number;
           condition: string;
           created_at: string;
+          dealership_id: number | null;
           description: string;
           engine_type: string;
           id: number;
@@ -182,6 +183,7 @@ export type Database = {
           capacity: number;
           condition: string;
           created_at?: string;
+          dealership_id?: number | null;
           description: string;
           engine_type: string;
           id?: never;
@@ -200,6 +202,7 @@ export type Database = {
           capacity?: number;
           condition?: string;
           created_at?: string;
+          dealership_id?: number | null;
           description?: string;
           engine_type?: string;
           id?: never;
@@ -214,7 +217,56 @@ export type Database = {
           user_id?: string;
           year?: number;
         };
-        Relationships: [];
+        Relationships: [
+          {
+            foreignKeyName: "cars_dealership_id_fkey";
+            columns: ["dealership_id"];
+            isOneToOne: false;
+            referencedRelation: "dealerships";
+            referencedColumns: ["id"];
+          }
+        ];
+      };
+      dealerships: {
+        Row: {
+          contact_number: string | null;
+          created_at: string | null;
+          email: string;
+          id: number;
+          location: string | null;
+          name: string;
+          profile_id: string | null;
+          updated_at: string | null;
+        };
+        Insert: {
+          contact_number?: string | null;
+          created_at?: string | null;
+          email: string;
+          id?: never;
+          location?: string | null;
+          name: string;
+          profile_id?: string | null;
+          updated_at?: string | null;
+        };
+        Update: {
+          contact_number?: string | null;
+          created_at?: string | null;
+          email?: string;
+          id?: never;
+          location?: string | null;
+          name?: string;
+          profile_id?: string | null;
+          updated_at?: string | null;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "dealerships_profile_id_fkey";
+            columns: ["profile_id"];
+            isOneToOne: false;
+            referencedRelation: "profiles";
+            referencedColumns: ["id"];
+          }
+        ];
       };
       inquiries: {
         Row: {
