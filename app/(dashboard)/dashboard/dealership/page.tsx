@@ -3,9 +3,16 @@ import DealershipForm from "./_components/dealership-form";
 import { Separator } from "@/components/ui/separator";
 import UpdateDealershipForm from "./_components/update-dealership-form";
 import { getMyCars } from "@/lib/fetchers/cars";
-import { Table, TableBody, TableCell, TableHeader, TableRow } from "@/components/ui/table";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
 import { formatToUsd } from "@/lib/utils";
+import Link from "next/link";
 
 const page = async () => {
   const dealership = await getMyDealership();
@@ -42,7 +49,11 @@ const page = async () => {
                       <TableCell>{formatToUsd(car.price)}</TableCell>
                       <TableCell>{car.sold ? "Yes" : "No"}</TableCell>
                       <TableCell>
-                        <Button variant="link" className="">Edit</Button>
+                        <Link href={`/dashboard/cars/${car.id}`}>
+                          <Button variant="link" className="">
+                            Edit
+                          </Button>
+                        </Link>
                         <Button className="">Delete</Button>
                       </TableCell>
                     </TableRow>
