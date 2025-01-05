@@ -119,3 +119,13 @@ export const newDealershipSchema = z.object({
 });
 
 export type DealershipFormData = z.infer<typeof newDealershipSchema>;
+
+export const updateDealershipSchema = z.object({
+  id: z.coerce.number(),
+  name: z.string().min(1, "Name is required"),
+  email: z.string().email("Invalid email address"),
+  contact_number: z.string().optional(),
+  location: z.string().optional(),
+});
+
+export type UpdateDealershipFormData = z.infer<typeof updateDealershipSchema>;

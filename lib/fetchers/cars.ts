@@ -12,6 +12,27 @@ export async function getCars() {
   return data;
 }
 
+export async function getMyCars() {
+  const supabase = await createClient();
+
+  const userData = await supabase.auth.getUser();
+
+  if (!userData || !userData.data.user) {
+    return [];
+  }
+
+  const { data, error } = await supabase
+    .from("cars")
+    .select("*,car_images(image_url), car_features(feature)").eq("user_id", userData.data.user.id).order("created_at", {ascending: false});
+
+  if (error || !data || data.length === 0) {
+    return []
+  }
+
+  return data;
+
+}
+
 export async function getCar(id:number) {
   const supabase = await createClient();
 
