@@ -2,7 +2,7 @@ import LatestNews from "../../_components/latest-news";
 
 const Ratings = () => {
   return (
-    <div>
+    <div className="pt-32">
       <LatestNews />
     </div>
   );
