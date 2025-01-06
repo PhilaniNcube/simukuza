@@ -164,7 +164,7 @@ export async function searchCars (min_price = "0", max_price = "100000", min_mil
   const minMileage = Number(min_mileage) || 0;
   const maxMileage = Number(max_mileage) || 1000000;
   const minYear = Number(min_year) || 0;
-  const maxYear = Number(max_year) || year;
+  const maxYear = Number(max_year) || year + 1;
 
 
   const { data, error } = await supabase.from("cars").select("*,car_images(image_url), car_features(feature)").gte("price", minPrice).lte("price", maxPrice).gte("mileage", minMileage).lte("mileage", maxMileage).gte("year", minYear).lte("year", maxYear).ilike("make", `%${make}%`).eq("condition", condition).ilike("model", `%${model}%`);
