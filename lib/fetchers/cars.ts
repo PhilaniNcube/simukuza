@@ -152,7 +152,7 @@ export const getPublicUrl = async (path:string) => {
 };
 
 
-export async function searchCars (min_price = "0", max_price = "100000", min_mileage = "0", max_mileage ="300000", min_year = "0", max_year = "2024", make = "", model="", condition:string) {
+export async function searchCars (min_price = "0", max_price = "100000", min_mileage = "0", max_mileage ="300000", min_year = "0", max_year = "2024", make = "", model="", condition:string | undefined) {
 
   const supabase = await createClient();
 
@@ -165,9 +165,21 @@ export async function searchCars (min_price = "0", max_price = "100000", min_mil
   const maxMileage = Number(max_mileage) || 1000000;
   const minYear = Number(min_year) || 0;
   const maxYear = Number(max_year) || year + 1;
+  const conditionQuery = condition || "new";
 
 
-  const { data, error } = await supabase.from("cars").select("*,car_images(image_url), car_features(feature)").gte("price", minPrice).lte("price", maxPrice).gte("mileage", minMileage).lte("mileage", maxMileage).gte("year", minYear).lte("year", maxYear).ilike("make", `%${make}%`).eq("condition", condition).ilike("model", `%${model}%`);
+  const { data, error } = await supabase
+    .from("cars")
+    .select("*,car_images(image_url), car_features(feature)")
+    .eq("condition", conditionQuery)
+    .ilike("model", `%${model}%`)
+    .ilike("make", `%${make}%`)
+    .gte("price", minPrice)
+    .lte("price", maxPrice)
+    .gte("mileage", minMileage)
+    .lte("mileage", maxMileage)
+    .gte("year", minYear)
+    .lte("year", maxYear);
 
   console.log({data, error});
 
