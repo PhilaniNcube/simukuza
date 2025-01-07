@@ -152,8 +152,17 @@ export const getPublicUrl = async (path:string) => {
 };
 
 
-export async function searchCars (min_price = "0", max_price = "100000", min_mileage = "0", max_mileage ="300000", min_year = "0", max_year = "2024", make = "", model="", condition:string | undefined) {
-
+export async function searchCars(
+  min_price: string,
+  max_price: string,
+  min_mileage: string,
+  max_mileage: string,
+  min_year: string,
+  max_year: string,
+  make: string,
+  model: string,
+  condition: string | undefined
+) {
   const supabase = await createClient();
 
   const year = new Date().getFullYear();
@@ -165,13 +174,13 @@ export async function searchCars (min_price = "0", max_price = "100000", min_mil
   const maxMileage = Number(max_mileage) || 1000000;
   const minYear = Number(min_year) || 0;
   const maxYear = Number(max_year) || year + 1;
+
   const conditionQuery = condition || "new";
 
 
   const { data, error } = await supabase
     .from("cars")
     .select("*,car_images(image_url), car_features(feature)")
-    .eq("condition", conditionQuery)
     .ilike("model", `%${model}%`)
     .ilike("make", `%${make}%`)
     .gte("price", minPrice)
@@ -179,14 +188,14 @@ export async function searchCars (min_price = "0", max_price = "100000", min_mil
     .gte("mileage", minMileage)
     .lte("mileage", maxMileage)
     .gte("year", minYear)
-    .lte("year", maxYear);
+    .lte("year", maxYear)
+    .ilike("condition", `%${conditionQuery}%`);
 
-  console.log({data, error});
+  console.log({ data, error });
 
   if (error || !data || data.length === 0) {
-    return []
+    return [];
   }
 
   return data;
-
 }

@@ -1,26 +1,22 @@
 "use server";
 
-
-import { createClient } from "@/utils/supabase/server";
-import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
 import { z } from "zod";
 
 const searchInputsSchema = z.object({
-  min_year:z.coerce.number(),
-  max_year:z.coerce.number(),
-  make:z.string(),
-  model:z.string(),
-  min_price:z.coerce.number(),
-  max_price:z.coerce.number(),
-  min_mileage:z.coerce.number(),
-  max_mileage:z.coerce.number(),
-  condition: z.string()
+  min_year: z.coerce.number(),
+  max_year: z.coerce.number(),
+  make: z.string(),
+  model: z.string(),
+  min_price: z.coerce.number(),
+  max_price: z.coerce.number(),
+  min_mileage: z.coerce.number(),
+  max_mileage: z.coerce.number(),
+  condition: z.string(),
 });
 
+export async function searchCarsAction(formData: FormData) {
 
-export async function searchCarsAction(prevState:unknown, formData:FormData) {
-
-  const supabase = await createClient();
 
   const validatedFields = searchInputsSchema.safeParse({
     min_year: formData.get("min_year"),
@@ -31,39 +27,23 @@ export async function searchCarsAction(prevState:unknown, formData:FormData) {
     max_price: formData.get("max_price"),
     min_mileage: formData.get("min_mileage"),
     max_mileage: formData.get("max_mileage"),
-    condition: formData.get("condition")
+    condition: formData.get("condition"),
   });
 
+  const year = new Date().getFullYear();
+
+  const condition = formData.get("condition") || "new";
+
   if (!validatedFields.success) {
-    console.error(validatedFields.error.flatten());
-    return []
+
+   redirect(
+     `/buy-a-car?condition=${condition}&make=&model=&min_year=0&max_year=${year}&min_price=0&max_price=1000000&min_mileage=0&max_mileage=1000000`
+   );
   }
 
-  const { data, error } = await supabase
-    .from("cars")
-    .select("*, car_images(image_url), car_features(feature)")
-    .eq("make", validatedFields.data.make)
-    .eq("model", validatedFields.data.model)
-    .gte("year", validatedFields.data.min_year)
-    .lte("year", validatedFields.data.max_year)
-    .gte("price", validatedFields.data.min_price)
-    .lte("price", validatedFields.data.max_price)
-    .gte("mileage", validatedFields.data.min_mileage)
-    .lte("mileage", validatedFields.data.max_mileage)
-    .eq("condition", validatedFields.data.condition);
-
-    console.log(data);
-    revalidatePath(`/cars/condition/${validatedFields.data.condition}`, "layout");
-
-    if (error) {
-      console.error(error);
-      return []
-    }
-
-    return data;
 
 
-
-
-
+  redirect(
+    `/buy-a-car?condition=${validatedFields.data.condition}&make=${validatedFields.data.make}&model=${validatedFields.data.model}&min_year=${validatedFields.data.min_year}&max_year=${validatedFields.data.max_year}&min_price=${validatedFields.data.min_price}&max_price=${validatedFields.data.max_price}&min_mileage=${validatedFields.data.min_mileage}&max_mileage=${validatedFields.data.max_mileage}`
+  );
 }

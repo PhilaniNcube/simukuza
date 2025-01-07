@@ -2,7 +2,7 @@
 
 import { Input } from "@/components/ui/input";
 import { Database } from "@/utils/schema";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import {  useSearchParams } from "next/navigation";
 import { Check, ChevronsUpDown } from "lucide-react";
 
 import { cn } from "@/lib/utils";
@@ -20,46 +20,50 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { startTransition, useOptimistic, useState } from "react";
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { useQueryState } from "nuqs";
+import { startTransition, useState } from "react";
+
+import { parseAsInteger, useQueryState } from "nuqs";
 import { Label } from "@/components/ui/label";
+import { Badge } from "@/components/ui/badge";
+import { searchCarsAction } from "@/actions/filter-cars";
 
 type CarFilterProps = {
   makes: Database["public"]["Tables"]["car_makes"]["Row"][];
 };
 
 const CarFilter = ({ makes }: CarFilterProps) => {
-  const pathname = usePathname();
-
-  // get the last item in the array
-  const path = pathname.split("/")[3];
-  console.log(path);
-
   const searchParams = useSearchParams();
   console.log(searchParams);
   const [open, setOpen] = useState(false);
 
-  const make = searchParams.get("make") || "";
-  const [optimisticMake, setOptimisticMake] = useOptimistic(make);
 
   const [conditionQuery, setConditionQuery] = useQueryState("condition", {
-    defaultValue: path,
+    defaultValue: searchParams.get("condition") || "new",
   });
-  const [minYearQuery, setMinYearQuery] = useQueryState("min_year");
-  const [maxYearQuery, setMaxYearQuery] = useQueryState("max_year");
-  const [minPriceQuery, setMinPriceQuery] = useQueryState("min_price");
-  const [maxPriceQuery, setMaxPriceQuery] = useQueryState("max_price");
-  const [minMileageQuery, setMinMileageQuery] = useQueryState("min_mileage");
-  const [maxMileageQuery, setMaxMileageQuery] = useQueryState("max_mileage");
+  const [minYearQuery, setMinYearQuery] = useQueryState(
+    "min_year",
+    parseAsInteger
+  );
+  const [maxYearQuery, setMaxYearQuery] = useQueryState(
+    "max_year",
+    parseAsInteger
+  );
+  const [minPriceQuery, setMinPriceQuery] = useQueryState(
+    "min_price",
+    parseAsInteger
+  );
+  const [maxPriceQuery, setMaxPriceQuery] = useQueryState(
+    "max_price",
+    parseAsInteger
+  );
+  const [minMileageQuery, setMinMileageQuery] = useQueryState(
+    "min_mileage",
+    parseAsInteger
+  );
+  const [maxMileageQuery, setMaxMileageQuery] = useQueryState(
+    "max_mileage",
+    parseAsInteger
+  );
   const [modelQuery, setModelQuery] = useQueryState("model", {
     defaultValue: "",
   });
@@ -67,7 +71,7 @@ const CarFilter = ({ makes }: CarFilterProps) => {
     defaultValue: "",
   });
 
-  const router = useRouter();
+
 
   return (
     <div className="max-w-xs relative isolate py-3 w-full px-3 ">
@@ -76,11 +80,20 @@ const CarFilter = ({ makes }: CarFilterProps) => {
           Search our inventory
         </p>
         <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            router.push(
-              `/cars/condition/${conditionQuery}?make=${makeQuery}&model=${modelQuery}&min_year=${minYearQuery}&max_year=${maxYearQuery}&min_price=${minPriceQuery}&max_price=${maxPriceQuery}&min_mileage=${minMileageQuery}&max_mileage=${maxMileageQuery}`
-            );
+          action={() => {
+            const formData = new FormData();
+            formData.append("condition", conditionQuery);
+            formData.append("make", makeQuery);
+            formData.append("model", modelQuery);
+            formData.append("min_year", String(minYearQuery));
+            formData.append("max_year", String(maxYearQuery));
+            formData.append("min_price", String(minPriceQuery));
+            formData.append("max_price", String(maxPriceQuery));
+            formData.append("min_mileage", String(minMileageQuery));
+            formData.append("max_mileage", String(maxMileageQuery));
+
+            // Call the searchCarsAction function with the form data
+            searchCarsAction(formData)
           }}
           className="flex flex-col gap-2"
         >
@@ -133,9 +146,6 @@ const CarFilter = ({ makes }: CarFilterProps) => {
                         }}
                         onSelect={(currentValue) => {
                           startTransition(() => {
-                            setOptimisticMake(currentValue);
-                            // update the url with the new search params
-                            // this will trigger a page refresh
                             setMakeQuery(currentValue);
                             setOpen(false);
                           });
@@ -143,12 +153,11 @@ const CarFilter = ({ makes }: CarFilterProps) => {
                       >
                         {m.name}
                         {/* if the make is the same as the selected make, show a check icon */}
-                        {optimisticMake.toLowerCase() ===
-                          m.name.toLowerCase() && (
+                        {makeQuery.toLowerCase() === m.name.toLowerCase() && (
                           <Check
                             className={cn(
                               "ml-auto",
-                              optimisticMake.toLowerCase() ===
+                              makeQuery.toLowerCase() ===
                                 m.name.toLowerCase() && "text-blue-500"
                             )}
                           />
@@ -171,7 +180,7 @@ const CarFilter = ({ makes }: CarFilterProps) => {
                 className="p-2 border border-gray-300"
                 value={Number(minPriceQuery)}
                 onChange={(e) => {
-                  setMinPriceQuery(e.target.value);
+                  setMinPriceQuery(Number(e.target.value));
                 }}
               />
             </div>
@@ -184,13 +193,12 @@ const CarFilter = ({ makes }: CarFilterProps) => {
                 className="p-2 border border-gray-300"
                 value={Number(maxPriceQuery)}
                 onChange={(e) => {
-                  setMaxPriceQuery(e.target.value);
+                  setMaxPriceQuery(Number(e.target.value));
                 }}
               />
             </div>
           </div>
           <div className="flex gap-2">
-
             <div>
               <Label htmlFor="min_year">Min Year</Label>
               <Input
@@ -200,7 +208,7 @@ const CarFilter = ({ makes }: CarFilterProps) => {
                 className="p-2 border border-gray-300"
                 value={Number(minYearQuery)}
                 onChange={(e) => {
-                  setMinYearQuery(e.target.value);
+                  setMinYearQuery(Number(e.target.value));
                 }}
               />
             </div>
@@ -213,7 +221,7 @@ const CarFilter = ({ makes }: CarFilterProps) => {
                 className="p-2 border border-gray-300"
                 value={Number(maxYearQuery)}
                 onChange={(e) => {
-                  setMaxYearQuery(e.target.value);
+                  setMaxYearQuery(Number(e.target.value));
                 }}
               />{" "}
             </div>
@@ -228,7 +236,7 @@ const CarFilter = ({ makes }: CarFilterProps) => {
                 className="p-2 border border-gray-300"
                 value={Number(minMileageQuery)}
                 onChange={(e) => {
-                  setMinMileageQuery(e.target.value);
+                  setMinMileageQuery(Number(e.target.value));
                 }}
               />
             </div>
@@ -241,29 +249,31 @@ const CarFilter = ({ makes }: CarFilterProps) => {
                 className="p-2 border border-gray-300"
                 value={Number(maxMileageQuery)}
                 onChange={(e) => {
-                  setMaxMileageQuery(e.target.value);
+                  setMaxMileageQuery(Number(e.target.value));
                 }}
               />
             </div>
           </div>
-          <div>
-            <Select
-              value={conditionQuery}
-              onValueChange={setConditionQuery}
-              name="condition"
+          <div className="w-full flex justify-between items-center gap-2 text-xs text-center">
+            <Badge className="h-8" onClick={() => setConditionQuery("new")}>
+              {conditionQuery === "new" && <Check size={16} className="mr-2" />}
+              New
+            </Badge>
+            <Badge className="h-8" onClick={() => setConditionQuery("used")}>
+              {conditionQuery === "used" && (
+                <Check size={16} className="mr-2" />
+              )}
+              Used
+            </Badge>
+            <Badge
+              className="h-8"
+              onClick={() => setConditionQuery("recent_import")}
             >
-              <SelectTrigger className="">
-                <SelectValue placeholder="Select condition" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectGroup>
-                  <SelectLabel>Condition</SelectLabel>
-                  <SelectItem value="new">New</SelectItem>
-                  <SelectItem value="used">Used</SelectItem>
-                  <SelectItem value="recent_import">Recent Import</SelectItem>
-                </SelectGroup>
-              </SelectContent>
-            </Select>
+              {conditionQuery === "recent_import" && (
+                <Check size={16} className="mr-2" />
+              )}
+              Recent Import
+            </Badge>
           </div>
           <Button type="submit" className="bg-accent relative text-white">
             Search

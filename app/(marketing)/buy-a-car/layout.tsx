@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
-import CarFilter from "../../_components/car-filter";
 import { getMakes } from "@/lib/fetchers/car-makes";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import CarFilter from "../_components/car-filter";
 
 const ConditionPageLayout = async ({children}:{children:ReactNode}) => {
 

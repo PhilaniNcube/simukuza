@@ -27,13 +27,17 @@ const DesktopMenu = ({user}:{user:User|null}) => {
           <NavigationMenuContent className="">
             <div className="px-6 py-4 min-w-[400px] flex flex-col space-y-2">
               <NavigationMenuLink asChild>
-                <Link href="/cars/condition/new">New Cars</Link>
+                <Link href="/buy-a-car?condition=new&make=&model=&min_year=0&max_year=2025&min_price=0&max_price=1000000&min_mileage=0&max_mileage=1000000">
+                  New Cars
+                </Link>
               </NavigationMenuLink>
               <NavigationMenuLink asChild>
-                <Link href="/cars/condition/used">Used Cars</Link>
+                <Link href="/buy-a-car?condition=used">Used Cars</Link>
               </NavigationMenuLink>
               <NavigationMenuLink asChild>
-                <Link href="/cars/condition/recent_import">Recent Imports</Link>
+                <Link href="/buy-a-car?condition=recent_import">
+                  Recent Import
+                </Link>
               </NavigationMenuLink>
             </div>
           </NavigationMenuContent>
