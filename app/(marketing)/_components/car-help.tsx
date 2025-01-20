@@ -57,13 +57,14 @@ const CarHelp = () => {
   return (
     <div className="py-6">
       <div className="max-w-7xl mx-auto px-4">
-        <div className="flex flex-row-reverse justify-start mb-4">
-          <div className=" rounded-r-full rounded-tl-full bg-accent w-fit p-2 pr-5 font-extrabold text-white shrink-0 border-b-[1px] border-b-accent">
+        <div className="flex flex-row-reverse justify-start mb-4 relative">
+          {/* <div className=" rounded-r-full rounded-tl-full bg-accent w-fit p-2 pr-5 font-extrabold text-white shrink-0 border-b-[1px] border-b-accent">
             <h2 className="text-balance leading-4 text-center uppercase text-xs md:text-md lg:text-2xl">
               Featured Articles
             </h2>
-          </div>
-          <div className="flex relative bg-white w-full  border-b-[1px] border-b-accent ">
+          </div> */}
+             <Image alt="Feature Articles" src="/images/featured_article.svg" className="w-full object-cover" width={1920} height={40} />
+          <div className="hidden md:flex absolute top-12 left-0 ">
             <div className="flex w-full justify-start">
               <h2 className="text-md md:text-3xl text-slate-500 font-extralight text-balance">
                 Car{" "}
