@@ -22,7 +22,7 @@ const FeaturedCarCarousel = ({data, carImages}:FeaturedCarCarouselProps) => {
 
   return (
     <div className="py-12">
-      <div className="mx-auto max-w-7xl px-4">
+      <div className="mx-auto max-w-7xl">
         <div className="relative flex md:hidden">
           <div className="overflow-hidden " ref={emblaRef}>
             <div className="flex gap-6">

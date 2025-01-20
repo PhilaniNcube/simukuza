@@ -7,7 +7,7 @@ const HelpPageHero = () => {
     <div>
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex justify-start mb-4">
-          <div className=" rounded-l-full rounded-tr-full bg-accent w-fit p-2 pr-5 font-extrabold text-white shrink-0 border-b-[1px] border-b-accent">
+          <div id="inverted" className="rounded-l-full rounded-tr-full bg-accent w-fit p-2 pr-5 font-extrabold text-white shrink-0 border-b-[1px] border-b-accent">
             <h2 className="text-balance leading-4 text-center uppercase text-xs md:text-md lg:text-2xl">
               Featured Articles
             </h2>
