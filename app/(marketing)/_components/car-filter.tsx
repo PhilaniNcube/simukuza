@@ -93,7 +93,7 @@ const CarFilter = ({ makes }: CarFilterProps) => {
             formData.append("max_mileage", String(maxMileageQuery));
 
             // Call the searchCarsAction function with the form data
-            searchCarsAction(formData)
+            searchCarsAction(formData);
           }}
           className="flex flex-col gap-2"
         >
@@ -255,21 +255,27 @@ const CarFilter = ({ makes }: CarFilterProps) => {
             </div>
           </div>
           <div className="w-full flex justify-between items-center gap-2 text-xs text-center">
-            <Badge className="h-8" onClick={() => setConditionQuery("new")}>
+            <Badge
+              className="h-8 cursor-pointer"
+              onClick={() => setConditionQuery("new")}
+            >
               {conditionQuery === "new" && <Check size={16} className="mr-2" />}
               New
             </Badge>
-            <Badge className="h-8" onClick={() => {
-              console.log("Used")
-              setConditionQuery("used")
-            }}>
+            <Badge
+              className="h-8 cursor-pointer"
+              onClick={() => {
+                console.log("Used");
+                setConditionQuery("used");
+              }}
+            >
               {conditionQuery === "used" && (
                 <Check size={16} className="mr-2" />
               )}
               Used
             </Badge>
             <Badge
-              className="h-8"
+              className="h-8 cursor-pointer"
               onClick={() => setConditionQuery("recent_import")}
             >
               {conditionQuery === "recent_import" && (
