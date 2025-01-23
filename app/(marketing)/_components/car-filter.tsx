@@ -259,7 +259,10 @@ const CarFilter = ({ makes }: CarFilterProps) => {
               {conditionQuery === "new" && <Check size={16} className="mr-2" />}
               New
             </Badge>
-            <Badge className="h-8" onClick={() => setConditionQuery("used")}>
+            <Badge className="h-8" onClick={() => {
+              console.log("Used")
+              setConditionQuery("used")
+            }}>
               {conditionQuery === "used" && (
                 <Check size={16} className="mr-2" />
               )}
