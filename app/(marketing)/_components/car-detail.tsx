@@ -36,7 +36,7 @@ export default function CarDetails({
                         alt={`${car.model} - Image ${index + 1}`}
                         width={1920}
                         height={1080}
-                        className="object-cover w-full aspect-video rounded-lg"
+                        className="object-cover w-full rounded-lg max-h-[600px] object-top"
                       />
                     </div>
                   </CarouselItem>
